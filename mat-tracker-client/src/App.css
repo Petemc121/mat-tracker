@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+[data-testid="header"] {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(19, 80, 179);
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#elementContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#input {
+  margin: 10px 0px;
+}
+
+#addMember {
+  margin: 10px;
+}
+
+[data-testid="belt"] {
+  width: 50px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+[data-testid="submit"] {
+  color: white;
+  background-color: rgb(19, 80, 179);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+[data-testid="submit"]:hover {
+  background-color: rgb(7, 63, 167);
+}
+
+.memberButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.memberButton:hover {
+  transform: scale(1.05);
+}
+
+#membersContain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  max-height: 500px;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#memberInputFormContainer {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+#memberInputForm {
+  margin-bottom: 50px;
+}
+
+.memberInputElement {
+  margin: 20px 0px;
+}
+
+.memberInput {
+  margin-left: 10px;
+}
+
+#addMember {
+  height: 30px;
+  text-decoration: none;
+  padding: 5px;
+  background-color: rgb(19, 80, 179);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#addMember:hover {
+  background-color: rgb(7, 63, 167);
+  color: white;
+}
+
+#addMemberLink {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.memberLink {
+  text-decoration: none;
+}
+
+#memberAddedNotification {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 253, 248);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeLink {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.homeLink:hover {
+  color: rgb(19, 80, 179);
+}
+
+#memberAddedMessage {
+  margin-top: -100px;
+  margin-bottom: 20px;
+}
+
+#memberInfoContainer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+.memberInfoElement {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+@media (min-width: 400px) {
+  .memberInfoElement {
+    width: 400px;
+  }
+}
+
+[data-testid="delete"] {
+  font-size: 20px;
+  padding: 5px;
+  background-color: rgb(19, 80, 179);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+[data-testid="delete"]:hover {
+  background-color: rgb(13, 13, 182);
+}
+
+#memberDeleted {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  justify-content: space-evenly;
+}
