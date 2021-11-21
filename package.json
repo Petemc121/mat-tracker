@@ -1,17 +1,18 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "nodemon server/index.ts",
-    "build": "tsc -p ."
+    "start": "node index.js",
+    "dev": "nodemon index.ts",
+    "build": "tsc -p .",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "pg": "^8.7.1"
   },
@@ -24,5 +25,15 @@
     "ts-node": "^10.4.0",
     "tslint": "^6.1.3",
     "typescript": "^4.4.4"
-  }
+  },
+  "proxy": "http://localhost:5000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Petemc121/mat-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Petemc121/mat-tracker/issues"
+  },
+  "homepage": "https://github.com/Petemc121/mat-tracker#readme",
+  "description": ""
 }

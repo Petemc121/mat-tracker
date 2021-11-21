@@ -3,9 +3,25 @@ import cors from "cors";
 import { pool } from "./database";
 
 const app: Application = express();
+const PORT = process.env.PORT || 5000;
+const path = require("path");
+
+//process.env.PORT
+//process.env.NODE_ENV => production or undefined
+
+//middleware
 
 app.use(cors());
 app.use(express.json()); //req.body
+
+if (process.env.NODE_ENV === "production") {
+  //server static contents
+  //npm run build
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
+
+console.warn(xhr.responseText);
+//ROUTES
 
 //adds members to member table on request.
 
@@ -83,6 +99,6 @@ app.delete("/members/:id", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running");
+app.listen(PORT, () => {
+  console.log(`Server is starting on port ${PORT}`);
 });
