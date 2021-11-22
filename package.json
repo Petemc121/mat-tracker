@@ -8,8 +8,8 @@
     "npm": "8.1.0"
   },
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "nodemon index.ts",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "build": "tsc -p .",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
