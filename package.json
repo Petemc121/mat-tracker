@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon index.ts",
-    "build": "tsc",
+    "build": "tsc -p .",
     "postinstall": "npm run build"
   },
   "author": "",
