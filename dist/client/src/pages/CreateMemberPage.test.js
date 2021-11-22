@@ -9,9 +9,8 @@ const react_router_dom_1 = require("react-router-dom");
 require("@testing-library/jest-dom");
 describe("create member page", () => {
     it("should have a form with all required fields", () => {
-        const { getByText, getAllByRole, getByRole } = (0, react_1.render)(<react_router_dom_1.BrowserRouter>
-        <CreateMemberPage_1.default />
-      </react_router_dom_1.BrowserRouter>);
+        const { getByText, getAllByRole, getByRole } = (0, react_1.render)(React.createElement(react_router_dom_1.BrowserRouter, null,
+            React.createElement(CreateMemberPage_1.default, null)));
         expect(getByText("Name:")).toBeInTheDocument();
         expect(getByText("Belt:")).toBeInTheDocument();
         expect(getByText("Phone number:")).toBeInTheDocument();
@@ -21,9 +20,8 @@ describe("create member page", () => {
     });
     it("should call handle change function on change of inputs", () => {
         const handleChange = jest.fn();
-        const { getByTestId } = (0, react_1.render)(<react_router_dom_1.BrowserRouter>
-        <CreateMemberPage_1.default handleChange={handleChange}/>
-      </react_router_dom_1.BrowserRouter>);
+        const { getByTestId } = (0, react_1.render)(React.createElement(react_router_dom_1.BrowserRouter, null,
+            React.createElement(CreateMemberPage_1.default, { handleChange: handleChange })));
         const name = getByTestId("name");
         const phone = getByTestId("phone");
         const belt = getByTestId("beltInput");
@@ -36,9 +34,8 @@ describe("create member page", () => {
     });
     it("should call handle submit function on submit", () => {
         const handleSubmit = jest.fn();
-        const { getByTestId } = (0, react_1.render)(<react_router_dom_1.BrowserRouter>
-        <CreateMemberPage_1.default handleSubmit={handleSubmit}/>
-      </react_router_dom_1.BrowserRouter>);
+        const { getByTestId } = (0, react_1.render)(React.createElement(react_router_dom_1.BrowserRouter, null,
+            React.createElement(CreateMemberPage_1.default, { handleSubmit: handleSubmit })));
         const submit = getByTestId("submit");
         react_1.fireEvent.click(submit);
         expect(handleSubmit).toHaveBeenCalledTimes(1);

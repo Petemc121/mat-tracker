@@ -17,11 +17,11 @@ const react_1 = require("@testing-library/react");
 require("@testing-library/jest-dom");
 describe("mat-tracker-client", () => {
     it("should render a header with the words 'Mat Tracker'", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { findByText } = (0, react_1.render)(<App_1.default />);
+        const { findByText } = (0, react_1.render)(React.createElement(App_1.default, null));
         expect(yield findByText("Mat Tracker")).toBeInTheDocument();
     }));
     it("should contain a button with text 'add member'", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { findByText } = (0, react_1.render)(<App_1.default />);
+        const { findByText } = (0, react_1.render)(React.createElement(App_1.default, null));
         expect(yield findByText("Add member")).toBeInTheDocument();
     }));
 });

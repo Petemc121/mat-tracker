@@ -9,18 +9,16 @@ const react_1 = require("@testing-library/react");
 require("@testing-library/jest-dom");
 describe("Member page", () => {
     it("should have a form with all required fields", () => {
-        const { getByText } = (0, react_1.render)(<react_router_dom_1.BrowserRouter>
-        <MemberPage_1.default />
-      </react_router_dom_1.BrowserRouter>);
+        const { getByText } = (0, react_1.render)(React.createElement(react_router_dom_1.BrowserRouter, null,
+            React.createElement(MemberPage_1.default, null)));
         expect(getByText("Name:")).toBeInTheDocument();
         expect(getByText("Belt:")).toBeInTheDocument();
         expect(getByText("Phone number:")).toBeInTheDocument();
         expect(getByText("Joined at:")).toBeInTheDocument();
     });
     it("should render deleted member notification on member delete", () => {
-        const { getByTestId, getByText } = (0, react_1.render)(<react_router_dom_1.BrowserRouter>
-        <MemberPage_1.default />
-      </react_router_dom_1.BrowserRouter>);
+        const { getByTestId, getByText } = (0, react_1.render)(React.createElement(react_router_dom_1.BrowserRouter, null,
+            React.createElement(MemberPage_1.default, null)));
         react_1.fireEvent.click(getByTestId("delete"));
         expect(getByText("Member deleted, navigate back to home")).toBeInTheDocument();
     });

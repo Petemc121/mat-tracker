@@ -18,7 +18,7 @@ require("@testing-library/jest-dom");
 describe("Routing config", () => {
     it("should call get members with target value of input", () => __awaiter(void 0, void 0, void 0, function* () {
         const getMembers = jest.fn();
-        const { getByTestId } = (0, react_1.render)(<RoutingConfig_1.default getMembersFunction={getMembers}/>);
+        const { getByTestId } = (0, react_1.render)(React.createElement(RoutingConfig_1.default, { getMembersFunction: getMembers }));
         yield (0, react_1.waitFor)(() => {
             const input = getByTestId("search");
             react_1.fireEvent.change(input, { target: { value: "j" } });
@@ -51,7 +51,7 @@ describe("Routing config", () => {
             ];
         }));
         yield (0, react_1.act)(() => __awaiter(void 0, void 0, void 0, function* () {
-            const { findByText } = (0, react_1.render)(<RoutingConfig_1.default getMembersFunction={getMembers}/>);
+            const { findByText } = (0, react_1.render)(React.createElement(RoutingConfig_1.default, { getMembersFunction: getMembers }));
             expect(yield findByText("bob")).toBeInTheDocument();
             expect(yield findByText("james")).toBeInTheDocument();
         }));

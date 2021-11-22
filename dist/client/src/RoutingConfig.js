@@ -41,15 +41,13 @@ function RoutingConfig({ getMembersFunction = MatTrackerData_1.getMembers, }) {
         waitForMembers();
     }, [getMembersFunction, memberSearch]);
     if (loading) {
-        return <div>...loading</div>;
+        return React.createElement("div", null, "...loading");
     }
-    return (<react_router_dom_1.BrowserRouter>
-      <react_router_dom_1.Routes>
-        <react_router_dom_1.Route path="/" element={<Home_1.default members={members} setMemberSearch={setMemberSearch}/>}/>
-        <react_router_dom_1.Route path="CreateMemberPage" element={<CreateMemberPage_1.default setMembers={setMembers}/>}/>
-        <react_router_dom_1.Route path="member/:id/:name/:belt/:phone/:joined" element={<MemberPage_1.default setMembers={setMembers} getMembersFunction={MatTrackerData_1.getMembers}/>}/>
-      </react_router_dom_1.Routes>
-    </react_router_dom_1.BrowserRouter>);
+    return (React.createElement(react_router_dom_1.BrowserRouter, null,
+        React.createElement(react_router_dom_1.Routes, null,
+            React.createElement(react_router_dom_1.Route, { path: "/", element: React.createElement(Home_1.default, { members: members, setMemberSearch: setMemberSearch }) }),
+            React.createElement(react_router_dom_1.Route, { path: "CreateMemberPage", element: React.createElement(CreateMemberPage_1.default, { setMembers: setMembers }) }),
+            React.createElement(react_router_dom_1.Route, { path: "member/:id/:name/:belt/:phone/:joined", element: React.createElement(MemberPage_1.default, { setMembers: setMembers, getMembersFunction: MatTrackerData_1.getMembers }) }))));
 }
 exports.default = RoutingConfig;
 //# sourceMappingURL=RoutingConfig.js.map

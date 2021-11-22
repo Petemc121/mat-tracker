@@ -32,34 +32,29 @@ function MemberPage({ setMembers, getMembersFunction = MatTrackerData_1.getMembe
             }
         });
     }
-    return (<div id="memberPage">
-      <div id="memberInfoContainer" style={{ display: deleted === false ? "flex" : "none" }}>
-        <div className="memberInfoElement">
-          <h3>Name:</h3> {name}
-        </div>
-        <div className="memberInfoElement">
-          <h3>Phone number:</h3> {phone}
-        </div>
-        <div className="memberInfoElement">
-          <h3>Belt:</h3> {belt}
-        </div>
-        <div className="memberInfoElement">
-          <h3>Joined at:</h3> {joined}
-        </div>
-        <button data-testid="delete" onClick={onDelete}>
-          delete
-        </button>
-        <react_router_dom_2.Link className="homeLink" to="/">
-          Home
-        </react_router_dom_2.Link>
-      </div>
-      <div id="memberDeleted" style={{ display: deleted === false ? "none" : "flex" }}>
-        <h2>Member deleted, navigate back to home</h2>
-        <react_router_dom_2.Link className="homeLink" to="/">
-          Home
-        </react_router_dom_2.Link>
-      </div>
-    </div>);
+    return (React.createElement("div", { id: "memberPage" },
+        React.createElement("div", { id: "memberInfoContainer", style: { display: deleted === false ? "flex" : "none" } },
+            React.createElement("div", { className: "memberInfoElement" },
+                React.createElement("h3", null, "Name:"),
+                " ",
+                name),
+            React.createElement("div", { className: "memberInfoElement" },
+                React.createElement("h3", null, "Phone number:"),
+                " ",
+                phone),
+            React.createElement("div", { className: "memberInfoElement" },
+                React.createElement("h3", null, "Belt:"),
+                " ",
+                belt),
+            React.createElement("div", { className: "memberInfoElement" },
+                React.createElement("h3", null, "Joined at:"),
+                " ",
+                joined),
+            React.createElement("button", { "data-testid": "delete", onClick: onDelete }, "delete"),
+            React.createElement(react_router_dom_2.Link, { className: "homeLink", to: "/" }, "Home")),
+        React.createElement("div", { id: "memberDeleted", style: { display: deleted === false ? "none" : "flex" } },
+            React.createElement("h2", null, "Member deleted, navigate back to home"),
+            React.createElement(react_router_dom_2.Link, { className: "homeLink", to: "/" }, "Home"))));
 }
 exports.default = MemberPage;
 //# sourceMappingURL=MemberPage.js.map

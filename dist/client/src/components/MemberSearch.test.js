@@ -19,7 +19,7 @@ describe("MemberSearch", () => {
     it("Should contain an input with test id 'search'", () => __awaiter(void 0, void 0, void 0, function* () {
         const setMemberSearch = jest.fn();
         yield (0, react_1.act)(() => __awaiter(void 0, void 0, void 0, function* () {
-            const { getByTestId } = (0, react_1.render)(<MemberSearch_1.default setMemberSearch={setMemberSearch}/>);
+            const { getByTestId } = (0, react_1.render)(React.createElement(MemberSearch_1.default, { setMemberSearch: setMemberSearch }));
             expect(getByTestId("search")).toBeInTheDocument();
         }));
     }));

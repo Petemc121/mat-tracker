@@ -18,11 +18,11 @@ describe("member", () => {
         member_frozen: null,
     };
     it("should render a button for the member", () => {
-        const { getByRole } = (0, react_1.render)(<Member_1.default member={member}/>);
+        const { getByRole } = (0, react_1.render)(React.createElement(Member_1.default, { member: member }));
         expect(getByRole("button")).toBeInTheDocument();
     });
     it("should render a div with test-id 'belt'", () => {
-        const { getByTestId } = (0, react_1.render)(<Member_1.default member={member}/>);
+        const { getByTestId } = (0, react_1.render)(React.createElement(Member_1.default, { member: member }));
         expect(getByTestId("belt")).toBeInTheDocument();
     });
 });

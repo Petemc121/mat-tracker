@@ -90,44 +90,30 @@ function CreateMemberPage({ handleChange, handleSubmit, getMembersFunction = Mat
             setMemberInput((values) => (Object.assign(Object.assign({}, values), { [name]: value })));
         };
     }
-    return (<div id="memberInputFormContainer">
-      <form id="memberInputForm" style={{ display: memberAdded ? "none" : "block" }}>
-        <div className="memberInputElement">
-          Name:
-          <input onChange={handleChange} name="member_name" className="memberInput" data-testid="name"></input>
-        </div>
-        <div className="memberInputElement">
-          Phone number:
-          <input onChange={handleChange} name="member_phone" className="memberInput" data-testid="phone"></input>
-        </div>
-        <div className="memberInputElement">
-          Belt:
-          <select onChange={handleChange} name="member_belt" data-testid="beltInput" className="memberInput">
-            <option value="white">white</option>
-            <option value="blue">blue</option>
-            <option value="purple">purple</option>
-            <option value="brown">brown</option>
-            <option value="black">black</option>
-          </select>
-        </div>
-        <div className="memberInputElement">
-          Joined:
-          <input name="member_joined_at" className="memberInput" type="date" data-testid="joined" onChange={handleChange} defaultValue={dateInput}/>
-        </div>
-        <input data-testid="submit" onClick={handleSubmit} type="submit"/>
-      </form>
-
-      <react_router_dom_1.Link className="homeLink" to="/">
-        Home
-      </react_router_dom_1.Link>
-      <div id="memberAddedNotification" style={{ display: memberAdded ? "flex" : "none" }}>
-        <h3 id="memberAddedMessage">Member added! Navigate back to home.</h3>
-
-        <react_router_dom_1.Link className="homeLink" to="/">
-          Home
-        </react_router_dom_1.Link>
-      </div>
-    </div>);
+    return (React.createElement("div", { id: "memberInputFormContainer" },
+        React.createElement("form", { id: "memberInputForm", style: { display: memberAdded ? "none" : "block" } },
+            React.createElement("div", { className: "memberInputElement" },
+                "Name:",
+                React.createElement("input", { onChange: handleChange, name: "member_name", className: "memberInput", "data-testid": "name" })),
+            React.createElement("div", { className: "memberInputElement" },
+                "Phone number:",
+                React.createElement("input", { onChange: handleChange, name: "member_phone", className: "memberInput", "data-testid": "phone" })),
+            React.createElement("div", { className: "memberInputElement" },
+                "Belt:",
+                React.createElement("select", { onChange: handleChange, name: "member_belt", "data-testid": "beltInput", className: "memberInput" },
+                    React.createElement("option", { value: "white" }, "white"),
+                    React.createElement("option", { value: "blue" }, "blue"),
+                    React.createElement("option", { value: "purple" }, "purple"),
+                    React.createElement("option", { value: "brown" }, "brown"),
+                    React.createElement("option", { value: "black" }, "black"))),
+            React.createElement("div", { className: "memberInputElement" },
+                "Joined:",
+                React.createElement("input", { name: "member_joined_at", className: "memberInput", type: "date", "data-testid": "joined", onChange: handleChange, defaultValue: dateInput })),
+            React.createElement("input", { "data-testid": "submit", onClick: handleSubmit, type: "submit" })),
+        React.createElement(react_router_dom_1.Link, { className: "homeLink", to: "/" }, "Home"),
+        React.createElement("div", { id: "memberAddedNotification", style: { display: memberAdded ? "flex" : "none" } },
+            React.createElement("h3", { id: "memberAddedMessage" }, "Member added! Navigate back to home."),
+            React.createElement(react_router_dom_1.Link, { className: "homeLink", to: "/" }, "Home"))));
 }
 exports.default = CreateMemberPage;
 //# sourceMappingURL=CreateMemberPage.js.map

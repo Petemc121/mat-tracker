@@ -9,9 +9,8 @@ function MemberSearch({ setMemberSearch }) {
         setMemberSearch(e.target.value);
         console.log(e.target.value);
     }
-    return (<div id="input">
-      <input onChange={onChange} placeholder="Search Member" data-testid="search"></input>
-    </div>);
+    return (react_1.default.createElement("div", { id: "input" },
+        react_1.default.createElement("input", { onChange: onChange, placeholder: "Search Member", "data-testid": "search" })));
 }
 exports.default = MemberSearch;
 //# sourceMappingURL=MemberSearch.js.map
