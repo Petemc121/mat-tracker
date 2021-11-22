@@ -37,8 +37,6 @@ export default function CreateMemberPage({
     async function addMember() {
       if (Object.values(memberInput).every((key) => key !== "")) {
         try {
-          //porxy
-
           const body = memberInput;
           const response = await fetch("/members", {
             method: "POST",

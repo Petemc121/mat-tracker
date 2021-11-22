@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 }
 
-console.warn(xhr.responseText);
 //ROUTES
 
 //adds members to member table on request.
@@ -97,6 +96,10 @@ app.delete("/members/:id", async (req: Request, res: Response) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, () => {

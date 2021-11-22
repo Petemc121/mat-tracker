@@ -11,7 +11,6 @@ export default function Members(members: membersInput) {
     <div id="membersContain">
       {members.members !== undefined &&
         members.members.map((member) => {
-          console.log(member);
           return (
             <Link
               className="memberLink"
