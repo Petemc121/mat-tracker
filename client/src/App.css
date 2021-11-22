@@ -13,7 +13,6 @@
   font-size: 25px;
   font-weight: bold;
 }
-
 #elementContainer {
   display: flex;
   flex-direction: column;
