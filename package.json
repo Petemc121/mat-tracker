@@ -8,9 +8,10 @@
     "npm": "8.1.0"
   },
   "scripts": {
+    "postinstall": "tsc",
+    "build": "tsc -p .",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "tsc -p .",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
