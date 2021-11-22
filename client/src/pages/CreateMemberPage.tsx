@@ -37,6 +37,11 @@ export default function CreateMemberPage({
     async function addMember() {
       if (Object.values(memberInput).every((key) => key !== "")) {
         try {
+
+          //proxy is only used in developement so it will be ignored in production builds
+          //so if there is no localhost then by default it will use heroku 
+          //remember this heroku app is just our server serving the build static content and also holding the restful api
+
           const body = memberInput;
           const response = await fetch("/members", {
             method: "POST",
