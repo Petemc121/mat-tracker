@@ -9,6 +9,5 @@
     "outDir": "dist"
   },
   "lib": ["es2015"],
-  "include": ["./client/src/**/*.ts"],
   "exclude": ["node_modules"]
 }
