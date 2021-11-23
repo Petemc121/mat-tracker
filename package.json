@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node index.ts",
+    "build": "tsc",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "dev": "nodemon index.ts",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
