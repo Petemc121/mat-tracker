@@ -87,4 +87,4 @@ app.listen(PORT, () => {
     console.log(`Server is starting on port ${PORT}`);
 });
 //"heroku-postbuild": "cd client && npm install && npm run build",
-//# sourceMappingURL=server.js.map
+//# sourceMappingURL=index.js.map
