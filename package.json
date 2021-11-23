@@ -8,9 +8,8 @@
     "npm": "8.1.0"
   },
   "scripts": {
-    "start": "node client/index.ts",
-    "build": "tsc",
-    "postinstall": "npm run build",
+    "start": "node client/index.tsx",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "dev": "nodemon index.ts",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
