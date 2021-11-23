@@ -1,8 +1,8 @@
-import express, { Application, Request, Response } from "express";
+import express from "express";
 import cors from "cors";
-import { pool } from "./database";
+import { pool } from "./Database";
 
-const app: Application = express();
+const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 
@@ -42,7 +42,7 @@ app.post("/members", async (req, res) => {
 
 // get all members
 
-app.get("/members", async (req: Request, res: Response) => {
+app.get("/members", async (req, res) => {
   try {
     const allMembers = await pool.query("SELECT * FROM members");
     res.json(allMembers.rows);
@@ -54,7 +54,7 @@ app.get("/members", async (req: Request, res: Response) => {
 
 //get a member
 
-app.get("/members/:name", async (req: Request, res: Response) => {
+app.get("/members/:name", async (req, res) => {
   try {
     const { name } = req.params;
     const member = await pool.query(
@@ -70,7 +70,7 @@ app.get("/members/:name", async (req: Request, res: Response) => {
 
 //update a member
 
-app.put("/members/:id", async (req: Request, res: Response) => {
+app.put("/members/:id", async (req, res) => {
   const { id } = req.params;
   const { belt } = req.body;
 
@@ -84,7 +84,7 @@ app.put("/members/:id", async (req: Request, res: Response) => {
 
 //delete a members
 
-app.delete("/members/:id", async (req: Request, res: Response) => {
+app.delete("/members/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query(
