@@ -1,0 +1,30 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const Member_1 = __importDefault(require("./Member"));
+const react_1 = require("@testing-library/react");
+require("@testing-library/jest-dom");
+describe("member", () => {
+    const member = {
+        member_id: 3,
+        member_name: "bobeth",
+        member_image: null,
+        member_phone: null,
+        member_belt: "blue",
+        member_joined_at: null,
+        member_paid: null,
+        member_frozen: null,
+    };
+    it("should render a button for the member", () => {
+        const { getByRole } = (0, react_1.render)((0, jsx_runtime_1.jsx)(Member_1.default, { member: member }, void 0));
+        expect(getByRole("button")).toBeInTheDocument();
+    });
+    it("should render a div with test-id 'belt'", () => {
+        const { getByTestId } = (0, react_1.render)((0, jsx_runtime_1.jsx)(Member_1.default, { member: member }, void 0));
+        expect(getByTestId("belt")).toBeInTheDocument();
+    });
+});
+//# sourceMappingURL=Member.test.js.map

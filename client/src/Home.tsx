@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import "./App.css";
 import Members from "./components/Members";
 import MemberSearch from "./components/MemberSearch";
