@@ -10,7 +10,6 @@
   "scripts": {
     "start": "node --loader ts-node/esm ./index.ts",
     "build": "tsc",
-    "heroku-postbuild": "npm install && npm run build",
     "dev": "nodemon index.ts",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
