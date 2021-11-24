@@ -9,7 +9,7 @@ import Members from "./components/Members";
 import MemberSearch from "./components/MemberSearch";
 
 interface homeInput {
-  members: getMembersResponse[];
+  members: getMembersResponse[] | undefined;
   setMemberSearch: any;
 }
 
