@@ -8,8 +8,8 @@
     "npm": "8.1.0"
   },
   "scripts": {
-    "start": "node --loader ts-node/esm ./index.ts",
-    "build": "tsc",
+    "start": "node dist/index.js",
+    "postinstall": "tsc",
     "dev": "nodemon index.ts",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
