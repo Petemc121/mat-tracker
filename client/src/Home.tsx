@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import {
+  getMembersResponse,
+  getMembersInput,
+} from "./MatTrackerDAO/MatTrackerDataTypes";
 import "./App.css";
 import Members from "./components/Members";
 import MemberSearch from "./components/MemberSearch";
 
-export default function Home({ members, setMemberSearch }) {
+interface homeInput {
+  members: getMembersResponse[];
+  setMemberSearch: any;
+}
+
+export default function Home({ members, setMemberSearch }: homeInput) {
   return (
     <>
       <div data-testid="header">Mat Tracker</div>
