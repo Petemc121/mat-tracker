@@ -108,16 +108,3 @@ app.listen(PORT, () => {
 });
 
 //"heroku-postbuild": "cd client && npm install && npm run build",
-
-// {
-//   "compilerOptions": {
-//     "jsx": "react",
-//     "module": "commonjs",
-//     "esModuleInterop": true,
-//     "target": "es6",
-//     "moduleResolution": "node",
-//     "sourceMap": true,
-//     "outDir": "dist"
-//   },
-//   "lib": ["es2015"]
-// }
