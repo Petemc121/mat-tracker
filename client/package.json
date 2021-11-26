@@ -1,7 +1,7 @@
 {
   "name": "mat-tracker-client",
   "version": "0.1.0",
-  "homepage": "build/static/",
+  "homepage": "build/static/index.html",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
