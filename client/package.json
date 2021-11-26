@@ -48,5 +48,6 @@
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "homepage": "."
 }
