@@ -15,6 +15,8 @@ const path = require("path");
 app.use(cors());
 app.use(express.json()); //req.body
 
+app.use(express.static(path.join(__dirname, "build")));
+
 if (process.env.NODE_ENV === "production") {
   //server static contents
   //npm run build
