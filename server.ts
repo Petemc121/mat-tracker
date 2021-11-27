@@ -18,7 +18,7 @@ app.use(express.json()); //req.body
 if (process.env.NODE_ENV === "production") {
   //server static contents
   //npm run build
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "build")));
 }
 
 //ROUTES
@@ -100,7 +100,7 @@ app.delete("/members/:id", async (req: Request, res: Response) => {
 });
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
+  res.sendFile(path.join(__dirname, "build/index.html"));
 });
 
 app.listen(PORT, () => {
