@@ -31,7 +31,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "nodemon server.ts",
+    "start": "node server.ts",
     "build": "react-scripts build",
     "dev": "nodemon server.ts",
     "heroku-postbuild": "tsc && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
