@@ -1,9 +1,8 @@
-import { Application, Response, Request } from "express";
-import express from "express";
-import cors from "cors";
-import { pool } from "./database";
+const express = require("express");
+const cors = require("cors");
+const importedPool = require("./database");
 
-const app: Application = express();
+const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 
@@ -27,27 +26,27 @@ if (process.env.NODE_ENV === "production") {
 
 //adds members to member table on request.
 
-app.post("/members", async (req: Request, res: Response) => {
+app.post("/members", async (req, res) => {
   try {
     const { member_name, member_phone, member_belt, member_joined_at } =
       req.body;
 
-    const newMember = await pool.query(
+    const newMember = await importedPool.query(
       "INSERT INTO members (member_name, member_phone, member_belt, member_joined_at) VALUES($1, $2, $3, $4) RETURNING *",
       [member_name, member_phone, member_belt, member_joined_at]
     );
 
     res.json(newMember.rows[0]);
-  } catch (error: any) {
+  } catch (error) {
     console.log(error.message);
   }
 });
 
 // get all members
 
-app.get("/members", async (req: Request, res: Response) => {
+app.get("/members", async (req, res) => {
   try {
-    const allMembers = await pool.query("SELECT * FROM members");
+    const allMembers = await importedPool.query("SELECT * FROM members");
     res.json(allMembers.rows);
     console.log(allMembers.rows);
   } catch (error) {
@@ -57,10 +56,10 @@ app.get("/members", async (req: Request, res: Response) => {
 
 //get a member
 
-app.get("/members/:name", async (req: Request, res: Response) => {
+app.get("/members/:name", async (req, res) => {
   try {
     const { name } = req.params;
-    const member = await pool.query(
+    const member = await importedPool.query(
       `SELECT * FROM members WHERE member_name= $1`,
       [name]
     );
@@ -73,11 +72,11 @@ app.get("/members/:name", async (req: Request, res: Response) => {
 
 //update a member
 
-app.put("/members/:id", async (req: Request, res: Response) => {
+app.put("/members/:id", async (req, res) => {
   const { id } = req.params;
   const { belt } = req.body;
 
-  const updateMember = await pool.query(
+  const updateMember = await importedPool.query(
     "UPDATE members SET member_belt = $1 WHERE member_id = $2",
     [belt, id]
   );
@@ -87,10 +86,10 @@ app.put("/members/:id", async (req: Request, res: Response) => {
 
 //delete a members
 
-app.delete("/members/:id", async (req: Request, res: Response) => {
+app.delete("/members/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query(
+    const deleteTodo = await importedPool.query(
       "DELETE FROM members WHERE member_id = $1",
       [id]
     );
@@ -101,7 +100,7 @@ app.delete("/members/:id", async (req: Request, res: Response) => {
   }
 });
 
-app.get("*", (req: Request, res: Response) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build/index.html"));
 });
 
