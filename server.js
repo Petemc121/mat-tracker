@@ -21,8 +21,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "build")));
 }
 
-//ROUTES
-
 //adds members to member table on request.
 
 app.post("/members", async (req, res) => {
