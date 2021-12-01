@@ -104,5 +104,3 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is starting on port ${PORT}`);
 });
-
-//"heroku-postbuild": "cd client && npm install && npm run build",
