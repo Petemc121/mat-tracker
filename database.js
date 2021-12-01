@@ -18,3 +18,5 @@ const pool = new Pool(
 );
 
 module.exports = pool;
+
+//"heroku-postbuild": "tsc && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
