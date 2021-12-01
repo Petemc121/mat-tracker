@@ -10,7 +10,12 @@ const devConfig = {
 };
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL, //heroku addons
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
+  database: process.env.PG_DATABASE,
+  ssl: true, //heroku addons
 };
 
 const pool = new Pool(
