@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import React from "react"
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getMembers } from "./MatTrackerDAO/MatTrackerData";
 import {
@@ -55,7 +55,7 @@ export default function RoutingConfig({
           element={<CreateMemberPage setMembers={setMembers} />}
         />
         <Route
-          path="member/:id/:name/:belt/:phone/:joined"
+          path="member/:id/:name/:belt/:phone/:joined/:paid/:frozen"
           element={
             <MemberPage
               setMembers={setMembers}

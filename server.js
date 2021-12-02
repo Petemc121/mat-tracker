@@ -25,12 +25,25 @@ if (process.env.NODE_ENV === "production") {
 
 app.post("/members", async (req, res) => {
   try {
-    const { member_name, member_phone, member_belt, member_joined_at } =
-      req.body;
+    const {
+      member_name,
+      member_phone,
+      member_belt,
+      member_joined_at,
+      member_paid,
+      member_frozen,
+    } = req.body;
 
     const newMember = await importedPool.query(
-      "INSERT INTO members (member_name, member_phone, member_belt, member_joined_at) VALUES($1, $2, $3, $4) RETURNING *",
-      [member_name, member_phone, member_belt, member_joined_at]
+      "INSERT INTO members (member_name, member_phone, member_belt, member_joined_at, member_paid, member_frozen) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      [
+        member_name,
+        member_phone,
+        member_belt,
+        member_joined_at,
+        member_paid,
+        member_frozen,
+      ]
     );
 
     res.json(newMember.rows[0]);

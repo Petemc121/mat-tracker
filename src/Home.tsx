@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import {
-  getMembersResponse,
-  getMembersInput,
-} from "./MatTrackerDAO/MatTrackerDataTypes";
+import { getMembersResponse } from "./MatTrackerDAO/MatTrackerDataTypes";
 import "./App.css";
 import Members from "./components/Members";
 import MemberSearch from "./components/MemberSearch";

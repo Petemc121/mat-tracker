@@ -18,7 +18,7 @@ export default function MemberPage({
   setMembers,
   getMembersFunction = getMembers,
 }: MemberPageInput) {
-  const { id, name, phone, belt, joined } = useParams();
+  const { id, name, phone, belt, joined, paid, frozen } = useParams();
   const [deleted, setDeleted] = useState(false);
 
   async function onDelete() {
@@ -53,6 +53,12 @@ export default function MemberPage({
         </div>
         <div className="memberInfoElement">
           <h3>Joined at:</h3> {joined}
+        </div>
+        <div className="memberInfoElement">
+          <h3>Paid:</h3> {paid}
+        </div>
+        <div className="memberInfoElement">
+          <h3>Frozen: </h3> {frozen}
         </div>
         <button data-testid="delete" onClick={onDelete}>
           delete

@@ -25,7 +25,11 @@ export default function Members(members: membersInput) {
                 "/" +
                 member.member_phone +
                 "/" +
-                member.member_joined_at
+                member.member_joined_at +
+                "/" +
+                member.member_paid +
+                "/" +
+                member.member_frozen
               }
             >
               <Member key={member.member_id} member={member} />

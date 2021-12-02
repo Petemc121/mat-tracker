@@ -27,6 +27,8 @@ export default function CreateMemberPage({
     member_phone: "",
     member_belt: "",
     member_joined_at: "",
+    member_paid: "No",
+    member_frozen: "No",
   });
   const [memberAdded, setMemberAdded] = useState(false);
   const date = new Date();
