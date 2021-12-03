@@ -84,11 +84,27 @@ app.get("/members/:name", async (req, res) => {
 
 app.put("/members/:id", async (req, res) => {
   const { id } = req.params;
-  const { belt } = req.body;
+  const {
+    member_name,
+    member_phone,
+    member_belt,
+    member_joined,
+    member_paid,
+    member_frozen,
+  } = req.body;
+  console.log(req.body);
 
   const updateMember = await importedPool.query(
-    "UPDATE members SET member_belt = $1 WHERE member_id = $2",
-    [belt, id]
+    "UPDATE members SET member_name = $1, member_phone = $2, member_belt = $3, member_joined_at = $4, member_paid = $5, member_frozen = $6 WHERE member_id = $7",
+    [
+      member_name,
+      member_phone,
+      member_belt,
+      member_joined,
+      member_paid,
+      member_frozen,
+      parseInt(id),
+    ]
   );
 
   res.json("member updated");

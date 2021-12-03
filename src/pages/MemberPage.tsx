@@ -21,7 +21,7 @@ export default function MemberPage({
   const { id, name, phone, belt, joined, paid, frozen } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [editing, setEditing] = useState(false);
-  const [update, setUpdate] = useState({
+  const [update, setUpdate] = useState<any>({
     member_name: name,
     member_phone: phone,
     member_belt: belt,
@@ -45,7 +45,7 @@ export default function MemberPage({
     }
   }
 
-  async function onEdit() {
+  function onEdit() {
     setEditing(true);
   }
 
@@ -53,15 +53,30 @@ export default function MemberPage({
     setEditing(false);
   }
 
-  function onUpdate() {
-    // try {
-    //   const response = await fetch("/members/" + id, {
-    //     method: "PATCH",
-    //     headers: { "Content-type": "application/json" },
-    //     body:
-    //   })
-    // } catch (error) {
-    // }
+  function handleChange(event: any) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUpdate((values: {}) => ({ ...values, [name]: value }));
+  }
+
+  // member/:id/:name/:belt/:phone/:joined/:paid/:frozen
+
+  async function handleUpdate(e: any) {
+    e.preventDefault();
+    const body = update;
+    try {
+      const response = await fetch("/members/" + id, {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const response2 = await getMembersFunction({ name: "" });
+      setMembers(response2);
+      console.log(body);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -102,6 +117,54 @@ export default function MemberPage({
           display: editing === true ? "flex" : "none",
         }}
       >
+        <form id="memberUpdateForm">
+          <div className="memberUpdateElement">
+            Name:
+            <input
+              onChange={handleChange}
+              name="member_name"
+              className="memberInput"
+              data-testid="name"
+            ></input>
+          </div>
+          <div className="memberUpdateElement">
+            Phone number:
+            <input
+              onChange={handleChange}
+              name="member_phone"
+              className="memberInput"
+              data-testid="phone"
+            ></input>
+          </div>
+          <div className="memberUpdateElement">
+            Belt:
+            <select
+              onChange={handleChange}
+              name="member_belt"
+              data-testid="beltInput"
+              className="memberInput"
+            >
+              <option value="white">white</option>
+              <option value="blue">blue</option>
+              <option value="purple">purple</option>
+              <option value="brown">brown</option>
+              <option value="black">black</option>
+            </select>
+          </div>
+          <div className="memberUpdateElement">
+            Joined:
+            <input
+              name="member_joined_at"
+              className="memberInput"
+              type="date"
+              data-testid="joined"
+              onChange={handleChange}
+              defaultValue={joined}
+            />
+          </div>
+          <input data-testid="submit" onClick={handleUpdate} type="submit" />
+        </form>
+
         <button data-testid="cancelEdit" onClick={onCancel}>
           Cancel
         </button>
