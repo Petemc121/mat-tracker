@@ -60,9 +60,13 @@ export default function MemberPage({
         <div className="memberInfoElement">
           <h3>Frozen: </h3> {frozen}
         </div>
+
+        <button data-testid="edit">edit</button>
+
         <button data-testid="delete" onClick={onDelete}>
           delete
         </button>
+
         <Link className="homeLink" to="/">
           Home
         </Link>

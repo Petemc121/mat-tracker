@@ -182,7 +182,7 @@
 [data-testid="delete"] {
   font-size: 20px;
   padding: 5px;
-  background-color: rgb(19, 80, 179);
+  background-color: rgb(104, 17, 22);
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -190,6 +190,20 @@
 }
 
 [data-testid="delete"]:hover {
+  background-color: rgb(134, 24, 29);
+}
+
+[data-testid="edit"] {
+  font-size: 20px;
+  padding: 5px;
+  background-color: rgb(19, 80, 179);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+[data-testid="edit"]:hover {
   background-color: rgb(13, 13, 182);
 }
 

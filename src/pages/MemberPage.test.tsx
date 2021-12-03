@@ -14,6 +14,8 @@ describe("Member page", () => {
     expect(getByText("Belt:")).toBeInTheDocument();
     expect(getByText("Phone number:")).toBeInTheDocument();
     expect(getByText("Joined at:")).toBeInTheDocument();
+    expect(getByText("Paid:")).toBeInTheDocument();
+    expect(getByText("Frozen:")).toBeInTheDocument();
   });
 
   it("should render deleted member notification on member delete", () => {
