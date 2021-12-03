@@ -20,6 +20,15 @@ export default function MemberPage({
 }: MemberPageInput) {
   const { id, name, phone, belt, joined, paid, frozen } = useParams();
   const [deleted, setDeleted] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [update, setUpdate] = useState({
+    member_name: name,
+    member_phone: phone,
+    member_belt: belt,
+    member_joined_at: joined,
+    member_paid: paid,
+    member_frozen: frozen,
+  });
 
   async function onDelete() {
     try {
@@ -36,11 +45,32 @@ export default function MemberPage({
     }
   }
 
+  async function onEdit() {
+    setEditing(true);
+  }
+
+  function onCancel() {
+    setEditing(false);
+  }
+
+  function onUpdate() {
+    // try {
+    //   const response = await fetch("/members/" + id, {
+    //     method: "PATCH",
+    //     headers: { "Content-type": "application/json" },
+    //     body:
+    //   })
+    // } catch (error) {
+    // }
+  }
+
   return (
     <div id="memberPage">
       <div
         id="memberInfoContainer"
-        style={{ display: deleted === false ? "flex" : "none" }}
+        style={{
+          display: deleted === false && editing === false ? "flex" : "none",
+        }}
       >
         <div className="memberInfoElement">
           <h3>Name:</h3> {name}
@@ -61,16 +91,29 @@ export default function MemberPage({
           <h3>Frozen: </h3> {frozen}
         </div>
 
-        <button data-testid="edit">edit</button>
-
-        <button data-testid="delete" onClick={onDelete}>
-          delete
-        </button>
-
         <Link className="homeLink" to="/">
           Home
         </Link>
       </div>
+
+      <div
+        id="memberInfoContainer"
+        style={{
+          display: editing === true ? "flex" : "none",
+        }}
+      >
+        <button data-testid="cancelEdit" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
+
+      <button data-testid="edit" onClick={onEdit}>
+        edit
+      </button>
+
+      <button data-testid="delete" onClick={onDelete}>
+        delete
+      </button>
       <div
         id="memberDeleted"
         style={{ display: deleted === false ? "none" : "flex" }}
