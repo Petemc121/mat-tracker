@@ -110,8 +110,6 @@ app.put("/members/:id", async (req, res) => {
   res.json("member updated");
 });
 
-//delete a members
-
 app.delete("/members/:id", async (req, res) => {
   try {
     const { id } = req.params;
