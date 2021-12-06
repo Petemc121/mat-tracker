@@ -30,7 +30,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "nodemon server.js",
     "test": "react-scripts test",

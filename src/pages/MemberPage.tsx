@@ -77,6 +77,8 @@ export default function MemberPage({
     } catch (error) {
       console.log(error);
     }
+    setUpdate(body);
+    setEditing(false);
   }
 
   return (
@@ -88,29 +90,39 @@ export default function MemberPage({
         }}
       >
         <div className="memberInfoElement">
-          <h3>Name:</h3> {name}
+          <h3>Name:</h3> {update.member_name}
         </div>
         <div className="memberInfoElement">
-          <h3>Phone number:</h3> {phone}
+          <h3>Phone number:</h3> {update.member_phone}
         </div>
         <div className="memberInfoElement">
-          <h3>Belt:</h3> {belt}
+          <h3>Belt:</h3> {update.member_belt}
         </div>
         <div className="memberInfoElement">
-          <h3>Joined at:</h3> {joined}
+          <h3>Joined at:</h3> {update.member_joined_at}
         </div>
         <div className="memberInfoElement">
-          <h3>Paid:</h3> {paid}
+          <h3>Paid:</h3> {update.member_paid}
         </div>
         <div className="memberInfoElement">
-          <h3>Frozen: </h3> {frozen}
+          <h3>Frozen: </h3> {update.member_frozen}
         </div>
-
-        <Link className="homeLink" to="/">
-          Home
-        </Link>
       </div>
 
+      <div className="center">
+        <button data-testid="edit" className="editDelete" onClick={onEdit}>
+          edit
+        </button>
+
+        <button data-testid="delete" className="editDelete" onClick={onDelete}>
+          delete
+        </button>
+      </div>
+      <div className="center">
+        <Link className="homeLink" to="/">
+          <button data-testid="edit">Home</button>
+        </Link>
+      </div>
       <div
         id="memberInfoContainer"
         style={{
@@ -162,6 +174,39 @@ export default function MemberPage({
               defaultValue={joined}
             />
           </div>
+
+          <div className="memberUpdateElement">
+            Paid:
+            <select
+              data-testid="paid"
+              name="member_paid"
+              onChange={handleChange}
+              defaultValue={paid}
+            >
+              <option value="" selected disabled hidden>
+                Choose here
+              </option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div className="memberUpdateElement">
+            Frozen:
+            <select
+              data-testid="frozen"
+              name="member_frozen"
+              onChange={handleChange}
+              defaultValue={frozen}
+            >
+              <option value="" selected disabled hidden>
+                Choose here
+              </option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
           <input data-testid="submit" onClick={handleUpdate} type="submit" />
         </form>
 
@@ -170,13 +215,6 @@ export default function MemberPage({
         </button>
       </div>
 
-      <button data-testid="edit" onClick={onEdit}>
-        edit
-      </button>
-
-      <button data-testid="delete" onClick={onDelete}>
-        delete
-      </button>
       <div
         id="memberDeleted"
         style={{ display: deleted === false ? "none" : "flex" }}

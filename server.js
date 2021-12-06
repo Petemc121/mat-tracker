@@ -88,7 +88,7 @@ app.put("/members/:id", async (req, res) => {
     member_name,
     member_phone,
     member_belt,
-    member_joined,
+    member_joined_at,
     member_paid,
     member_frozen,
   } = req.body;
@@ -100,7 +100,7 @@ app.put("/members/:id", async (req, res) => {
       member_name,
       member_phone,
       member_belt,
-      member_joined,
+      member_joined_at,
       member_paid,
       member_frozen,
       parseInt(id),
