@@ -110,17 +110,17 @@ export default function MemberPage({
       </div>
 
       <div className="center">
-        <button data-testid="edit" className="editDelete" onClick={onEdit}>
+        <button data-testid="edit" className="buttons" onClick={onEdit}>
           edit
         </button>
 
-        <button data-testid="delete" className="editDelete" onClick={onDelete}>
+        <button data-testid="delete" className="buttons" onClick={onDelete}>
           delete
         </button>
       </div>
       <div className="center">
         <Link className="homeLink" to="/">
-          <button data-testid="edit">Home</button>
+          <button className="buttons home">Home</button>
         </Link>
       </div>
       <div
@@ -183,8 +183,8 @@ export default function MemberPage({
               onChange={handleChange}
               defaultValue={paid}
             >
-              <option value="" selected disabled hidden>
-                Choose here
+              <option value="no" selected>
+                Select
               </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
@@ -199,8 +199,8 @@ export default function MemberPage({
               onChange={handleChange}
               defaultValue={frozen}
             >
-              <option value="" selected disabled hidden>
-                Choose here
+              <option value="no" selected>
+                Select
               </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
@@ -208,11 +208,10 @@ export default function MemberPage({
           </div>
 
           <input data-testid="submit" onClick={handleUpdate} type="submit" />
+          <button data-testid="cancelEdit" type="button" onClick={onCancel}>
+            Cancel
+          </button>
         </form>
-
-        <button data-testid="cancelEdit" onClick={onCancel}>
-          Cancel
-        </button>
       </div>
 
       <div

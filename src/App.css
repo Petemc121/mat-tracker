@@ -28,13 +28,9 @@
 .center {
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-.editDelete {
-  margin: 10px 10px;
 }
 
 #addMember {
@@ -57,6 +53,14 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+}
+
+[data-testid="paid"] {
+  margin-left: 5px;
+}
+
+[data-testid="frozen"] {
+  margin-left: 5px;
 }
 
 [data-testid="submit"]:hover {
@@ -87,7 +91,7 @@
   width: 300px;
   max-height: 500px;
   flex-wrap: wrap;
-  border: 2px solid black;
+  border: 2px solid rgb(66, 62, 62);
   border-radius: 10px;
 }
 
@@ -192,13 +196,7 @@
 }
 
 [data-testid="delete"] {
-  font-size: 20px;
-  padding: 5px;
   background-color: rgb(104, 17, 22);
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 [data-testid="delete"]:hover {
@@ -206,17 +204,37 @@
 }
 
 [data-testid="edit"] {
-  font-size: 20px;
-  padding: 5px;
   background-color: rgb(19, 80, 179);
+}
+[data-testid="edit"]:hover {
+  background-color: rgb(13, 13, 182);
+}
+
+#memberUpdateForm {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons {
+  margin: 10px 10px;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
 }
 
-[data-testid="edit"]:hover {
-  background-color: rgb(13, 13, 182);
+.home {
+  background-color: rgb(23, 23, 112);
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.home:hover {
+  background-color: rgb(36, 36, 136);
 }
 
 #memberDeleted {

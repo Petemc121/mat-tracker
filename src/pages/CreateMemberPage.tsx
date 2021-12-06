@@ -34,37 +34,9 @@ export default function CreateMemberPage({
   const date = new Date();
   const month = date.getMonth() + 1;
   const dateInput = date.getFullYear() + "-" + month + "-" + date.getDate();
-  console.log(memberInput);
-  useEffect(() => {
-    async function addMember() {
-      if (Object.values(memberInput).every((key) => key !== "")) {
-        try {
-          //proxy is only used in developement so it will be ignored in production builds
-          //so if there is no localhost then by default it will use heroku
-          //remember this heroku app is just our server serving the build static content and also holding the restful api
-
-          const body = memberInput;
-          const response = await fetch("/members", {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(body),
-          });
-
-          const response2 = await getMembersFunction({ name: "" });
-          setMembers(response2);
-          console.log(response);
-          memberInput = {};
-          setMemberAdded(true);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    }
-    addMember();
-  }, [memberInput]);
 
   if (handleSubmit === undefined) {
-    handleSubmit = (e: any) => {
+    handleSubmit = async (e: any) => {
       e.preventDefault();
 
       if (memberInput.member_name === "") {
@@ -99,7 +71,26 @@ export default function CreateMemberPage({
           member_joined_at: dateInput,
         }));
       }
-      console.log(memberInput);
+      try {
+        //proxy is only used in developement so it will be ignored in production builds
+        //so if there is no localhost then by default it will use heroku
+        //remember this heroku app is just our server serving the build static content and also holding the restful api
+
+        const body = memberInput;
+        const response = await fetch("/members", {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const response2 = await getMembersFunction({ name: "" });
+        setMembers(response2);
+        console.log(response);
+        memberInput = {};
+        setMemberAdded(true);
+      } catch (error) {
+        console.log(error);
+      }
     };
   }
 
