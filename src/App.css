@@ -53,6 +53,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 [data-testid="paid"] {
@@ -208,6 +209,19 @@
 }
 [data-testid="edit"]:hover {
   background-color: rgb(13, 13, 182);
+}
+
+[data-testid="cancelEdit"] {
+  background-color: rgb(134, 24, 29);
+  color: white;
+  font-weight: bold;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+[data-testid="cancelEdit"]:hover {
+  background-color: rgb(163, 27, 34);
 }
 
 #memberUpdateForm {

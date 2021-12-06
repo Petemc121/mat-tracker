@@ -110,16 +110,30 @@ export default function MemberPage({
       </div>
 
       <div className="center">
-        <button data-testid="edit" className="buttons" onClick={onEdit}>
+        <button
+          style={{ display: editing ? "none" : "block" }}
+          data-testid="edit"
+          className="buttons"
+          onClick={onEdit}
+        >
           edit
         </button>
 
-        <button data-testid="delete" className="buttons" onClick={onDelete}>
+        <button
+          data-testid="delete"
+          style={{ display: editing ? "none" : "block" }}
+          className="buttons"
+          onClick={onDelete}
+        >
           delete
         </button>
       </div>
       <div className="center">
-        <Link className="homeLink" to="/">
+        <Link
+          style={{ display: editing ? "none" : "block" }}
+          className="homeLink"
+          to="/"
+        >
           <button className="buttons home">Home</button>
         </Link>
       </div>
