@@ -22,21 +22,23 @@ export default function CreateMemberPage({
   getMembersFunction = getMembers,
   setMembers,
 }: CreateMemberPageInput) {
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const dateInput = date.getFullYear() + "-" + month + "-" + date.getDate();
   let [memberInput, setMemberInput] = useState<any>({
     member_name: "",
     member_phone: "",
-    member_belt: "",
-    member_joined_at: "",
+    member_belt: "white",
+    member_joined_at: dateInput,
     member_paid: "No",
     member_frozen: "No",
   });
   const [memberAdded, setMemberAdded] = useState(false);
-  const date = new Date();
-  const month = date.getMonth() + 1;
-  const dateInput = date.getFullYear() + "-" + month + "-" + date.getDate();
+
+  useEffect(() => {}, []);
 
   if (handleSubmit === undefined) {
-    handleSubmit = async (e: any) => {
+    handleSubmit = (e: any) => {
       e.preventDefault();
 
       if (memberInput.member_name === "") {
@@ -62,32 +64,26 @@ export default function CreateMemberPage({
         }
       }
 
-      if (memberInput.member_belt === "") {
-        setMemberInput((values: {}) => ({ ...values, member_belt: "white" }));
-      }
-      if (memberInput.member_joined_at === "") {
-        setMemberInput((values: {}) => ({
-          ...values,
-          member_joined_at: dateInput,
-        }));
-      }
       try {
         //proxy is only used in developement so it will be ignored in production builds
         //so if there is no localhost then by default it will use heroku
         //remember this heroku app is just our server serving the build static content and also holding the restful api
+        async function addMember() {
+          const body = memberInput;
+          console.log(memberInput);
+          const response = await fetch("/members", {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(body),
+          });
 
-        const body = memberInput;
-        const response = await fetch("/members", {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify(body),
-        });
-
-        const response2 = await getMembersFunction({ name: "" });
-        setMembers(response2);
-        console.log(response);
-        memberInput = {};
-        setMemberAdded(true);
+          const response2 = await getMembersFunction({ name: "" });
+          setMembers(response2);
+          console.log(response);
+          memberInput = {};
+          setMemberAdded(true);
+        }
+        addMember();
       } catch (error) {
         console.log(error);
       }
@@ -165,7 +161,7 @@ export default function CreateMemberPage({
         <h3 id="memberAddedMessage">Member added! Navigate back to home.</h3>
 
         <Link className="homeLink" to="/">
-          Home
+          <button className="buttons home">Home</button>
         </Link>
       </div>
     </div>

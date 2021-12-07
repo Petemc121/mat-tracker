@@ -31,17 +31,21 @@ export default function MemberPage({
   });
 
   async function onDelete() {
-    try {
-      const response = await fetch("/members/" + id, {
-        method: "DELETE",
-        headers: { "Content-type": "application/json" },
-      });
+    const c = window.confirm("Are you sure you want to delete this member?");
 
-      const response2 = await getMembersFunction({ name: "" });
-      setMembers(response2);
-      setDeleted(true);
-    } catch (error) {
-      console.log(error);
+    if (c === true) {
+      try {
+        const response = await fetch("/members/" + id, {
+          method: "DELETE",
+          headers: { "Content-type": "application/json" },
+        });
+
+        const response2 = await getMembersFunction({ name: "" });
+        setMembers(response2);
+        setDeleted(true);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -111,7 +115,7 @@ export default function MemberPage({
 
       <div className="center">
         <button
-          style={{ display: editing ? "none" : "block" }}
+          style={{ display: editing || deleted ? "none" : "block" }}
           data-testid="edit"
           className="buttons"
           onClick={onEdit}
@@ -121,7 +125,7 @@ export default function MemberPage({
 
         <button
           data-testid="delete"
-          style={{ display: editing ? "none" : "block" }}
+          style={{ display: editing || deleted ? "none" : "block" }}
           className="buttons"
           onClick={onDelete}
         >
@@ -130,7 +134,7 @@ export default function MemberPage({
       </div>
       <div className="center">
         <Link
-          style={{ display: editing ? "none" : "block" }}
+          style={{ display: editing || deleted ? "none" : "block" }}
           className="homeLink"
           to="/"
         >
@@ -227,15 +231,16 @@ export default function MemberPage({
           </button>
         </form>
       </div>
-
-      <div
-        id="memberDeleted"
-        style={{ display: deleted === false ? "none" : "flex" }}
-      >
-        <h2>Member deleted, navigate back to home</h2>
-        <Link className="homeLink" to="/">
-          Home
-        </Link>
+      <div id="memberDeleted">
+        <div
+          id="memberDeletedInner"
+          style={{ display: deleted === false ? "none" : "flex" }}
+        >
+          <h2>Member deleted, navigate back to home</h2>
+          <Link className="homeLink" to="/">
+            <button className="buttons home">Home</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

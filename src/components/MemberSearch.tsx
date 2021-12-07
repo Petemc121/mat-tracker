@@ -11,11 +11,12 @@ export default function MemberSearch({ setMemberSearch }: MemberSearchInput) {
   }
 
   return (
-    <div id="input">
+    <div>
       <input
         onChange={onChange}
         placeholder="Search Member"
         data-testid="search"
+        id="memberSearch"
       ></input>
     </div>
   );

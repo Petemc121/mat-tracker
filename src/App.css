@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
 }
 
 [data-testid="header"] {
@@ -8,9 +11,9 @@
   text-align: center;
   background-color: rgb(19, 80, 179);
   color: white;
-  height: 50px;
+  height: 60px;
   line-height: 50px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
 }
 #elementContainer {
@@ -21,8 +24,8 @@
   width: 100%;
 }
 
-#input {
-  margin: 10px 0px;
+#memberSearch {
+  margin: 20px 0px 30px 0px;
 }
 
 .center {
@@ -34,7 +37,17 @@
 }
 
 #addMember {
-  margin: 10px;
+  margin: 20px;
+  height: 40px;
+  text-decoration: none;
+  padding: 10px;
+  background-color: rgb(23, 23, 112);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 [data-testid="belt"] {
@@ -119,20 +132,8 @@
   margin-left: 10px;
 }
 
-#addMember {
-  height: 30px;
-  text-decoration: none;
-  padding: 5px;
-  background-color: rgb(19, 80, 179);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
 #addMember:hover {
-  background-color: rgb(7, 63, 167);
+  background-color: rgb(36, 36, 136);
   color: white;
 }
 
@@ -175,14 +176,16 @@
 }
 
 #memberInfoContainer {
-  width: 100%;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-top: 50px;
   font-size: 25px;
+  background-color: rgb(242, 242, 246);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .memberInfoElement {
@@ -215,9 +218,10 @@
   background-color: rgb(134, 24, 29);
   color: white;
   font-weight: bold;
-  height: 25px;
+  height: 30px;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: -20px;
 }
 
 [data-testid="cancelEdit"]:hover {
@@ -225,9 +229,17 @@
 }
 
 #memberUpdateForm {
-  height: 300px;
+  height: 500px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(242, 242, 246);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.memberUpdateElement {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -253,10 +265,22 @@
 
 #memberDeleted {
   width: 100%;
-  height: 200px;
+  height: 100vw;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  justify-content: flex-start;
+  background-color: rgb(255, 253, 248);
+}
+
+#memberDeletedInner {
+  width: 100%;
+  height: 300px;
   text-align: center;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
   justify-content: space-evenly;
+  background-color: rgb(255, 253, 248);
 }
