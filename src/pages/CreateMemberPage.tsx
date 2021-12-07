@@ -102,7 +102,7 @@ export default function CreateMemberPage({
     <div id="memberInputFormContainer">
       <form
         id="memberInputForm"
-        style={{ display: memberAdded ? "none" : "block" }}
+        style={{ display: memberAdded ? "none" : "flex" }}
       >
         <div className="memberInputElement">
           Name:
@@ -151,8 +151,10 @@ export default function CreateMemberPage({
         <input data-testid="submit" onClick={handleSubmit} type="submit" />
       </form>
 
-      <Link className="homeLink" to="/">
-        Home
+      <Link id="createMemberCancel" className="homeLink" to="/">
+        <button data-testid="cancel" className="cancel">
+          Cancel
+        </button>
       </Link>
       <div
         id="memberAddedNotification"
@@ -161,7 +163,7 @@ export default function CreateMemberPage({
         <h3 id="memberAddedMessage">Member added! Navigate back to home.</h3>
 
         <Link className="homeLink" to="/">
-          <button className="buttons home">Home</button>
+          <button className="buttons cancel home">Home</button>
         </Link>
       </div>
     </div>

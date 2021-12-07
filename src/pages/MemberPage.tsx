@@ -111,9 +111,7 @@ export default function MemberPage({
         <div className="memberInfoElement">
           <h3>Frozen: </h3> {update.member_frozen}
         </div>
-      </div>
 
-      <div className="center">
         <button
           style={{ display: editing || deleted ? "none" : "block" }}
           data-testid="edit"
@@ -125,6 +123,7 @@ export default function MemberPage({
 
         <button
           data-testid="delete"
+          id="delete"
           style={{ display: editing || deleted ? "none" : "block" }}
           className="buttons"
           onClick={onDelete}
@@ -132,6 +131,7 @@ export default function MemberPage({
           delete
         </button>
       </div>
+
       <div className="center">
         <Link
           style={{ display: editing || deleted ? "none" : "block" }}
@@ -225,8 +225,13 @@ export default function MemberPage({
             </select>
           </div>
 
-          <input data-testid="submit" onClick={handleUpdate} type="submit" />
-          <button data-testid="cancelEdit" type="button" onClick={onCancel}>
+          <input
+            data-testid="submit"
+            id="updateSubmit"
+            onClick={handleUpdate}
+            type="submit"
+          />
+          <button data-testid="cancel" type="button" onClick={onCancel}>
             Cancel
           </button>
         </form>

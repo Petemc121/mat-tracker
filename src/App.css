@@ -66,7 +66,13 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 20px;
+  margin: auto auto;
+  width: 80%;
+}
+
+#updateSubmit {
+  margin: 0px 0px;
+  width: 100%;
 }
 
 [data-testid="paid"] {
@@ -107,25 +113,37 @@
   flex-wrap: wrap;
   border: 2px solid rgb(66, 62, 62);
   border-radius: 10px;
+  box-shadow: 5px 10px 10px rgb(231, 229, 229);
 }
 
 #memberInputFormContainer {
   font-size: 20px;
   font-weight: bold;
-  width: 100%;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: rgb(242, 242, 246);
+  padding: 10px;
+  box-shadow: 5px 10px 10px rgb(231, 229, 229);
 }
 
 #memberInputForm {
-  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .memberInputElement {
-  margin: 20px 0px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 .memberInput {
@@ -181,40 +199,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 50px;
+  margin: 50px auto;
   font-size: 25px;
-  background-color: rgb(242, 242, 246);
+  background-color: rgb(242, 242, 255);
   padding: 20px;
   border-radius: 10px;
+  width: 400px;
+  box-shadow: 5px 10px 10px rgb(231, 229, 229);
 }
 
 .memberInfoElement {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  width: 2600px;
 }
 @media (min-width: 400px) {
   .memberInfoElement {
-    width: 400px;
+    width: 300px;
   }
-}
-
-[data-testid="delete"] {
-  background-color: rgb(104, 17, 22);
-}
-
-[data-testid="delete"]:hover {
-  background-color: rgb(134, 24, 29);
 }
 
 [data-testid="edit"] {
   background-color: rgb(19, 80, 179);
+  width: 80%;
 }
 [data-testid="edit"]:hover {
-  background-color: rgb(13, 13, 182);
+  background-color: rgb(22, 92, 204);
 }
 
-[data-testid="cancelEdit"] {
+[data-testid="cancel"] {
   background-color: rgb(134, 24, 29);
   color: white;
   font-weight: bold;
@@ -222,9 +235,14 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: -20px;
+  width: 100%;
 }
 
-[data-testid="cancelEdit"]:hover {
+#createMemberCancel {
+  width: 80%;
+}
+
+[data-testid="cancel"]:hover {
   background-color: rgb(163, 27, 34);
 }
 
@@ -232,7 +250,7 @@
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: rgb(242, 242, 246);
   padding: 20px;
   border-radius: 10px;
@@ -241,6 +259,19 @@
 .memberUpdateElement {
   display: flex;
   justify-content: space-between;
+}
+
+[data-testid="delete"] {
+  background-color: rgb(134, 24, 29);
+}
+
+#delete {
+  width: 80%;
+  margin-top: -40px;
+}
+
+[data-testid="delete"]:hover {
+  background-color: rgb(163, 27, 34);
 }
 
 .buttons {
