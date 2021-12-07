@@ -1,4 +1,4 @@
-Web-app built on the PERN stack using TypeScript with TDD using react-testing-library. The design was also designed with 3 layer modeling architecture.
+Web-app built on the PERN stack using TypeScript with TDD using react-testing-library. Desgined with 3 layer modeling architecture in mind.
 
 UI and Database are hosted on the Heroku hosting platform. 
 
