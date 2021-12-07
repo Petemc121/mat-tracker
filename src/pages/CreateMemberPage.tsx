@@ -63,7 +63,6 @@ export default function CreateMemberPage({
           return;
         }
       }
-
       try {
         //proxy is only used in developement so it will be ignored in production builds
         //so if there is no localhost then by default it will use heroku
