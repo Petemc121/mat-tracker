@@ -26,11 +26,12 @@
     "react-router": "^6.0.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "sass": "^1.46.0",
     "typescript": "^4.4.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "nodemon server.js",
     "test": "react-scripts test",

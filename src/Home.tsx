@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import { useState, useEffect } from "react";
 import { getMembersResponse } from "./MatTrackerDAO/MatTrackerDataTypes";
-import "./App.css";
+import "./styles/app.css";
 import Members from "./components/Members";
 import MemberSearch from "./components/MemberSearch";
 
@@ -11,6 +11,12 @@ interface homeInput {
 }
 
 export default function Home({ members, setMemberSearch }: homeInput) {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [setLoaded]);
+
   return (
     <>
       <div data-testid="header">Mat Tracker</div>

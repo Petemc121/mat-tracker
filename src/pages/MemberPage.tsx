@@ -236,7 +236,10 @@ export default function MemberPage({
           </button>
         </form>
       </div>
-      <div id="memberDeleted">
+      <div
+        style={{ display: deleted === false ? "none" : "block" }}
+        id="memberDeleted"
+      >
         <div
           id="memberDeletedInner"
           style={{ display: deleted === false ? "none" : "flex" }}

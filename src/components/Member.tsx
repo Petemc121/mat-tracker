@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { getMembersResponse } from "../MatTrackerDAO/MatTrackerDataTypes";
 
 interface memberInput {
@@ -6,8 +6,17 @@ interface memberInput {
 }
 
 const Member = ({ member }: memberInput) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+
+    if (loaded) {
+      console.log("true");
+    }
+  }, [setLoaded, loaded]);
   return (
-    <button className="memberButton">
+    <button style={{ opacity: loaded ? "1" : "0" }} className="memberButton">
       <h3>{member.member_name}</h3>
       <div
         style={{

@@ -1,31 +1,49 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
+}
+
+body {
+  height: 100vh;
+  width: 100vh;
+  background-color: $tertiary-color;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+#elementContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 [data-testid="header"] {
   width: 100%;
   text-align: center;
-  background-color: rgb(19, 80, 179);
+  background-color: $primary-color;
   color: white;
   height: 60px;
-  line-height: 50px;
+  line-height: 60px;
   font-size: 30px;
   font-weight: bold;
-}
-#elementContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 #memberSearch {
   margin: 20px 0px 30px 0px;
+  border: none;
+  border-radius: 2px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
 }
 
 .center {
@@ -41,13 +59,19 @@
   height: 40px;
   text-decoration: none;
   padding: 10px;
-  background-color: rgb(23, 23, 112);
+  background-color: $secondary-color;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
+  transition: all 0.5s;
+}
+
+#addMember:hover {
+  background-color: $dark-secondary-color;
+  color: white;
 }
 
 [data-testid="belt"] {
@@ -60,7 +84,7 @@
 
 [data-testid="submit"] {
   color: white;
-  background-color: rgb(19, 80, 179);
+  background-color: $secondary-color;
   border: none;
   padding: 5px;
   border-radius: 5px;
@@ -84,7 +108,7 @@
 }
 
 [data-testid="submit"]:hover {
-  background-color: rgb(7, 63, 167);
+  background-color: $dark-secondary-color;
 }
 
 .memberButton {
@@ -92,15 +116,19 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  border-radius: 5px;
-  margin: 10px 10px;
+  border-radius: 3px;
+  margin: 20px 20px;
+  height: 100px;
   padding: 5px;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.5s;
+  border: none;
+  box-shadow: 1px 2px 2px rgb(85, 48, 48);
 }
 
 .memberButton:hover {
-  transform: scale(1.05);
+  background-color: $primary-color;
+  color: white;
 }
 
 #membersContain {
@@ -111,9 +139,8 @@
   width: 300px;
   max-height: 500px;
   flex-wrap: wrap;
-  border: 2px solid rgb(66, 62, 62);
-  border-radius: 10px;
-  box-shadow: 5px 10px 10px rgb(231, 229, 229);
+  border-radius: 5px;
+  background-color: $tertiary-color;
 }
 
 #memberInputFormContainer {
@@ -126,9 +153,8 @@
   align-items: center;
   margin: 20px auto;
   border-radius: 10px;
-  background-color: rgb(242, 242, 246);
   padding: 10px;
-  box-shadow: 5px 10px 10px rgb(231, 229, 229);
+  background-color: white;
 }
 
 #memberInputForm {
@@ -150,11 +176,6 @@
   margin-left: 10px;
 }
 
-#addMember:hover {
-  background-color: rgb(36, 36, 136);
-  color: white;
-}
-
 #addMemberLink {
   text-decoration: none;
   color: black;
@@ -171,10 +192,11 @@
   top: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 253, 248);
+  background-color: $tertiary-color;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .homeLink {
@@ -201,11 +223,10 @@
   justify-content: space-between;
   margin: 50px auto;
   font-size: 25px;
-  background-color: rgb(242, 242, 255);
+  background-color: white;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
-  box-shadow: 5px 10px 10px rgb(231, 229, 229);
 }
 
 .memberInfoElement {
@@ -220,11 +241,11 @@
 }
 
 [data-testid="edit"] {
-  background-color: rgb(19, 80, 179);
+  background-color: $secondary-color;
   width: 80%;
 }
 [data-testid="edit"]:hover {
-  background-color: rgb(22, 92, 204);
+  background-color: $dark-secondary-color;
 }
 
 [data-testid="cancel"] {
@@ -243,7 +264,7 @@
 }
 
 [data-testid="cancel"]:hover {
-  background-color: rgb(163, 27, 34);
+  background-color: rgb(99, 17, 21);
 }
 
 #memberUpdateForm {
@@ -271,7 +292,7 @@
 }
 
 [data-testid="delete"]:hover {
-  background-color: rgb(163, 27, 34);
+  background-color: rgb(99, 17, 21);
 }
 
 .buttons {
@@ -285,13 +306,13 @@
 }
 
 .home {
-  background-color: rgb(23, 23, 112);
+  background-color: $primary-color;
   margin-top: 20px;
   font-size: 30px;
 }
 
 .home:hover {
-  background-color: rgb(36, 36, 136);
+  background-color: $dark-primary-color;
 }
 
 #memberDeleted {
