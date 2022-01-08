@@ -9,7 +9,7 @@
 body {
   height: 100vh;
   width: 100vh;
-  background-color: #119da4;
+  background-color: white;
 }
 
 #root {
@@ -51,6 +51,24 @@ body {
   height: 30px;
   width: 200px;
   text-align: center;
+  background-color: #119da4;
+  color: white;
+}
+
+#memberSearch ::-webkit-input-placeholder {
+  color: white;
+}
+
+#memberSearch :-ms-input-placeholder {
+  color: white;
+}
+
+#memberSearch ::-ms-input-placeholder {
+  color: white;
+}
+
+#memberSearch ::placeholder {
+  color: white;
 }
 
 .center {

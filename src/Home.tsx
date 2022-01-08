@@ -11,11 +11,7 @@ interface homeInput {
 }
 
 export default function Home({ members, setMemberSearch }: homeInput) {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, [setLoaded]);
+ 
 
   return (
     <>

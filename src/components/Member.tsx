@@ -15,6 +15,7 @@ const Member = ({ member }: memberInput) => {
       console.log("true");
     }
   }, [setLoaded, loaded]);
+  
   return (
     <button style={{ opacity: loaded ? "1" : "0" }} className="memberButton">
       <h3>{member.member_name}</h3>

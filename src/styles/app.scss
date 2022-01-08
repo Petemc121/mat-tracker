@@ -11,7 +11,7 @@
 body {
   height: 100vh;
   width: 100vh;
-  background-color: $tertiary-color;
+  background-color: white;
 }
 
 #root {
@@ -44,6 +44,11 @@ body {
   height: 30px;
   width: 200px;
   text-align: center;
+  background-color: $tertiary-color;
+  color: white;
+  ::placeholder {
+    color: white;
+  }
 }
 
 .center {
