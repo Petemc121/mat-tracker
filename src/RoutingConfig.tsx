@@ -8,7 +8,7 @@ import {
 } from "./MatTrackerDAO/MatTrackerDataTypes";
 import CreateMemberPage from "./pages/CreateMemberPage";
 import MemberPage from "./pages/MemberPage";
-import Home from "./Home";
+import Home from "./pages/Home";
 
 interface routingConfigInput {
   getMembersFunction?: ({

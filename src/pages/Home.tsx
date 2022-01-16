@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getMembersResponse } from "./MatTrackerDAO/MatTrackerDataTypes";
-import "./styles/app.css";
-import Members from "./components/Members";
-import MemberSearch from "./components/MemberSearch";
+import { getMembersResponse } from "../MatTrackerDAO/MatTrackerDataTypes";
+import "../styles/app.css";
+import Members from "../components/Members";
+import MemberSearch from "../components/MemberSearch";
 
 interface homeInput {
   members: getMembersResponse[] | undefined;
@@ -11,8 +10,6 @@ interface homeInput {
 }
 
 export default function Home({ members, setMemberSearch }: homeInput) {
- 
-
   return (
     <>
       <div data-testid="header">Mat Tracker</div>

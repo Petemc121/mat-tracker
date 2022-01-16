@@ -46,29 +46,10 @@ body {
 
 #memberSearch {
   margin: 20px 0px 30px 0px;
-  border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   height: 30px;
   width: 200px;
   text-align: center;
-  background-color: #119da4;
-  color: white;
-}
-
-#memberSearch ::-webkit-input-placeholder {
-  color: white;
-}
-
-#memberSearch :-ms-input-placeholder {
-  color: white;
-}
-
-#memberSearch ::-ms-input-placeholder {
-  color: white;
-}
-
-#memberSearch ::placeholder {
-  color: white;
 }
 
 .center {
@@ -190,7 +171,6 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 300px;
-  max-height: 500px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border-radius: 5px;
@@ -217,7 +197,7 @@ body {
   margin: 20px auto;
   border-radius: 10px;
   padding: 10px;
-  background-color: white;
+  background-color: #f2f2f6;
 }
 
 #memberInputForm {
@@ -315,7 +295,7 @@ body {
           justify-content: space-between;
   margin: 50px auto;
   font-size: 25px;
-  background-color: white;
+  background-color: #f2f2f6;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
@@ -435,11 +415,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 50px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  background-color: #fffdf8;
+  background-color: #119da4;
+  color: white;
 }
 
 #memberDeletedInner {
@@ -453,10 +433,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 50px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  background-color: #fffdf8;
+  background-color: #119da4;
 }
 /*# sourceMappingURL=app.css.map */
