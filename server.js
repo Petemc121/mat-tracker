@@ -49,6 +49,8 @@ app.post("/members", async (req, res) => {
       ]
     );
 
+    console.log(newMemberQuery);
+
     res.json(newMemberQuery.rows[0]);
   } catch (error) {
     console.log(error.message);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getMembers } from "../MatTrackerDAO/MatTrackerData";
+import { getMembers, addMember } from "../MatTrackerDAO/MatTrackerData";
 import {
   getMembersResponse,
   getMembersInput,
@@ -64,22 +64,16 @@ export default function CreateMemberPage({
         //proxy is only used in developement so it will be ignored in production builds
         //so if there is no localhost then by default it will use heroku
         //remember this heroku app is just our server serving the build static content and also holding the restful api
-        async function addMember() {
-          const body = memberInput;
+        const updateMembers = async () => {
+          await addMember({ memberInput: memberInput });
           console.log(memberInput);
-          const response = await fetch("/members", {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(body),
-          });
-
-          const response2 = await getMembersFunction({ name: "" });
-          setMembers(response2);
-          console.log(response);
+          const newMembers = await getMembersFunction({ name: "" });
+          console.log(newMembers);
+          setMembers(newMembers);
           memberInput = {};
           setMemberAdded(true);
-        }
-        addMember();
+        };
+        updateMembers();
       } catch (error) {
         console.log(error);
       }

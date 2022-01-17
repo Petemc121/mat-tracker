@@ -5,7 +5,11 @@ import {
   getMembersInput,
   getMembersResponse,
 } from "../MatTrackerDAO/MatTrackerDataTypes";
-import { getMembers } from "../MatTrackerDAO/MatTrackerData";
+import {
+  getMembers,
+  deleteMember,
+  updateMember,
+} from "../MatTrackerDAO/MatTrackerData";
 
 interface MemberPageInput {
   getMembersFunction?: ({
@@ -35,13 +39,9 @@ export default function MemberPage({
 
     if (c === true) {
       try {
-        const response = await fetch("/members/" + id, {
-          method: "DELETE",
-          headers: { "Content-type": "application/json" },
-        });
-
-        const response2 = await getMembersFunction({ name: "" });
-        setMembers(response2);
+        await deleteMember({ id: id });
+        const updatedMembers = await getMembersFunction({ name: "" });
+        setMembers(updatedMembers);
         setDeleted(true);
       } catch (error) {
         console.log(error);
@@ -69,15 +69,9 @@ export default function MemberPage({
     e.preventDefault();
     const body = update;
     try {
-      const response = await fetch("/members/" + id, {
-        method: "PUT",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
+      updateMember({ id: id, update: update });
       const response2 = await getMembersFunction({ name: "" });
       setMembers(response2);
-      console.log(body);
     } catch (error) {
       console.log(error);
     }

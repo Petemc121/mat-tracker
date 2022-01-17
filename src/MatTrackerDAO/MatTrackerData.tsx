@@ -1,4 +1,12 @@
-import { getMembersInput, getMembersResponse } from "./MatTrackerDataTypes";
+import {
+  getMembersInput,
+  getMembersResponse,
+  addMemberInput,
+  deleteMemberInput,
+  updateMemberInput,
+} from "./MatTrackerDataTypes";
+
+//Data Access Object
 
 async function getMembers({
   name,
@@ -17,4 +25,30 @@ async function getMembers({
   return members;
 }
 
-export { getMembers };
+async function addMember({ memberInput }: addMemberInput) {
+  const body = memberInput;
+  console.log("dao " + memberInput);
+  const response = await fetch("http://localhost:5000/members", {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+async function deleteMember({ id }: deleteMemberInput) {
+  const response = await fetch("/members/" + id, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" },
+  });
+}
+
+async function updateMember({ id, update }: updateMemberInput) {
+  const body = update;
+  const response = await fetch("/members/" + id, {
+    method: "PUT",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export { getMembers, addMember, deleteMember, updateMember };

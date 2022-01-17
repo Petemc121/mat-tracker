@@ -13,4 +13,37 @@ type getMembersInput = {
   name: string;
 };
 
-export type { getMembersResponse, getMembersInput };
+type addMemberInput = {
+  memberInput: {
+    member_name: string;
+    member_phone: string;
+    member_belt: string;
+    member_joined_at: string;
+    member_paid: string;
+    member_frozen: string;
+  };
+};
+
+type deleteMemberInput = {
+  id?: string;
+};
+
+type updateMemberInput = {
+  id?: string;
+  update: {
+    member_name: string;
+    member_phone: string;
+    member_belt: string;
+    member_joined_at: string;
+    member_paid: string;
+    member_frozen: string;
+  };
+};
+
+export type {
+  getMembersResponse,
+  getMembersInput,
+  addMemberInput,
+  deleteMemberInput,
+  updateMemberInput,
+};
