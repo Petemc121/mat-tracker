@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
@@ -25,6 +25,7 @@ export default function MemberPage({
   const { id, name, phone, belt, joined, paid, frozen } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [edited, setEdited] = useState(false);
   const [update, setUpdate] = useState<any>({
     member_name: name,
     member_phone: phone,
@@ -34,18 +35,47 @@ export default function MemberPage({
     member_frozen: frozen,
   });
 
-  async function onDelete() {
-    const c = window.confirm("Are you sure you want to delete this member?");
-
-    if (c === true) {
+  useEffect(() => {
+    const deleteAndUpdateMembers = async () => {
       try {
         await deleteMember({ id: id });
         const updatedMembers = await getMembersFunction({ name: "" });
         setMembers(updatedMembers);
         setDeleted(true);
+        const newMembers = await getMembersFunction({ name: "" });
+        console.log(newMembers);
+        setMembers(newMembers);
       } catch (error) {
         console.log(error);
       }
+    };
+
+    const editAndUpdateMembers = async () => {
+      const body = update;
+      try {
+        updateMember({ id: id, update: update });
+        const response2 = await getMembersFunction({ name: "" });
+        setMembers(response2);
+      } catch (error) {
+        console.log(error);
+      }
+      setUpdate(body);
+    };
+
+    if (edited === true) {
+      editAndUpdateMembers();
+    }
+
+    if (deleted === true) {
+      deleteAndUpdateMembers();
+    }
+  }, [deleted, getMembersFunction, id, setMembers, edited, update]);
+
+  async function onDelete() {
+    const c = window.confirm("Are you sure you want to delete this member?");
+
+    if (c === true) {
+      setDeleted(true);
     }
   }
 
@@ -67,15 +97,7 @@ export default function MemberPage({
 
   async function handleUpdate(e: any) {
     e.preventDefault();
-    const body = update;
-    try {
-      updateMember({ id: id, update: update });
-      const response2 = await getMembersFunction({ name: "" });
-      setMembers(response2);
-    } catch (error) {
-      console.log(error);
-    }
-    setUpdate(body);
+    setEdited(true);
     setEditing(false);
   }
 

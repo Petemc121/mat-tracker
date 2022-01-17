@@ -34,7 +34,23 @@ export default function CreateMemberPage({
   });
   const [memberAdded, setMemberAdded] = useState(false);
 
-  useEffect(() => {}, [setMembers]);
+  useEffect(() => {
+    const updateMembers = async () => {
+      await addMember({ memberInput: memberInput });
+      console.log(memberInput);
+      const newMembers = await getMembersFunction({ name: "" });
+      console.log(newMembers);
+      setMembers(newMembers);
+      memberInput = {};
+    };
+
+    if (memberAdded === true) {
+      console.log("memberAdded)");
+      updateMembers();
+    } else {
+      console.log("memberNotAdded)");
+    }
+  }, [memberAdded]);
 
   if (handleSubmit === undefined) {
     handleSubmit = (e: any) => {
@@ -66,21 +82,12 @@ export default function CreateMemberPage({
         //proxy is only used in developement so it will be ignored in production builds
         //so if there is no localhost then by default it will use heroku
         //remember this heroku app is just our server serving the build static content and also holding the restful api
-        const updateMembers = async () => {
-          await addMember({ memberInput: memberInput });
-          console.log(memberInput);
-        };
-        const getNewMembers = async () => {
-          const newMembers = await getMembersFunction({ name: "" });
-          console.log(newMembers);
-          setMembers(newMembers);
-          memberInput = {};
-          setMemberAdded(true);
-        };
-        updateMembers();
-        getNewMembers();
+        setMemberAdded(true);
+        console.log("adding");
+        console.log(memberAdded);
       } catch (error) {
         console.log(error);
+        console.log("memberAdded)");
       }
     };
   }
