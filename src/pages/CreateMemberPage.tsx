@@ -67,6 +67,8 @@ export default function CreateMemberPage({
         const updateMembers = async () => {
           await addMember({ memberInput: memberInput });
           console.log(memberInput);
+        };
+        const getNewMembers = async () => {
           const newMembers = await getMembersFunction({ name: "" });
           console.log(newMembers);
           setMembers(newMembers);
@@ -74,6 +76,7 @@ export default function CreateMemberPage({
           setMemberAdded(true);
         };
         updateMembers();
+        getNewMembers();
       } catch (error) {
         console.log(error);
       }

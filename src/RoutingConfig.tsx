@@ -29,6 +29,7 @@ export default function RoutingConfig({
         const memberArray = await getMembersFunction({
           name: memberSearch,
         });
+        console.log(memberArray);
         setMembers(memberArray);
         setLoading(false);
       } catch (error) {
