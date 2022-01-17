@@ -1,4 +1,4 @@
-const Pool = require("pg").Pool;
+const Pool = require("pg").Pool; //a cache of database connections that can be re-used upon request.
 require("dotenv").config();
 
 const devConfig = {
@@ -19,5 +19,3 @@ const pool = new Pool(
 );
 
 module.exports = pool;
-
-//"heroku-postbuild": "tsc && npm install && npm install --only=dev --no-shrinkwrap && npm run build",

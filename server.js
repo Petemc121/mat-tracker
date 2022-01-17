@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require("cors");
-const importedPool = require("./database");
+const cors = require("cors"); //cross-origin resource sharing. Allows different domain applications to interact with each other.
+const importedPool = require("./database"); //connections are reused rather than created each time a connection is requested
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require("path");
@@ -11,7 +11,7 @@ const path = require("path");
 //middleware
 
 app.use(cors());
-app.use(express.json()); //req.body
+app.use(express.json()); //allows access to req.body
 
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -21,10 +21,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "build")));
 }
 
+//ROUTES
+
 //adds members to member table on request.
 
 app.post("/members", async (req, res) => {
   try {
+    //try to connect. Catch potential errors.
     const {
       member_name,
       member_phone,
@@ -34,7 +37,7 @@ app.post("/members", async (req, res) => {
       member_frozen,
     } = req.body;
 
-    const newMember = await importedPool.query(
+    const newMemberQuery = await importedPool.query(
       "INSERT INTO members (member_name, member_phone, member_belt, member_joined_at, member_paid, member_frozen) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
       [
         member_name,
@@ -46,7 +49,7 @@ app.post("/members", async (req, res) => {
       ]
     );
 
-    res.json(newMember.rows[0]);
+    res.json(newMemberQuery.rows[0]);
   } catch (error) {
     console.log(error.message);
   }
@@ -64,7 +67,7 @@ app.get("/members", async (req, res) => {
   }
 });
 
-//get a member
+//get a member based on name parameter
 
 app.get("/members/:name", async (req, res) => {
   try {
@@ -80,7 +83,7 @@ app.get("/members/:name", async (req, res) => {
   }
 });
 
-//update a member
+//update a member based on id parameter
 
 app.put("/members/:id", async (req, res) => {
   const { id } = req.params;
@@ -92,9 +95,8 @@ app.put("/members/:id", async (req, res) => {
     member_paid,
     member_frozen,
   } = req.body;
-  console.log(req.body);
 
-  const updateMember = await importedPool.query(
+  const updatedMemberQuery = await importedPool.query(
     "UPDATE members SET member_name = $1, member_phone = $2, member_belt = $3, member_joined_at = $4, member_paid = $5, member_frozen = $6 WHERE member_id = $7",
     [
       member_name,
@@ -113,7 +115,7 @@ app.put("/members/:id", async (req, res) => {
 app.delete("/members/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await importedPool.query(
+    const deletedMemberQuery = await importedPool.query(
       "DELETE FROM members WHERE member_id = $1",
       [id]
     );
