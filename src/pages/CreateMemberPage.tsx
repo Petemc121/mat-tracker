@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMembers, addMember } from "../MatTrackerDAO/MatTrackerData";
 import {
@@ -33,6 +33,8 @@ export default function CreateMemberPage({
     member_frozen: "No",
   });
   const [memberAdded, setMemberAdded] = useState(false);
+
+  useEffect(() => {}, [setMembers]);
 
   if (handleSubmit === undefined) {
     handleSubmit = (e: any) => {
