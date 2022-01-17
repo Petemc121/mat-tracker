@@ -41,7 +41,6 @@ export default function CreateMemberPage({
       const newMembers = await getMembersFunction({ name: "" });
       console.log(newMembers);
       setMembers(newMembers);
-      memberInput = {};
     };
 
     if (memberAdded === true) {
