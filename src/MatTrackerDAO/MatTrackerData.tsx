@@ -11,7 +11,7 @@ import {
 async function getMembers({
   name,
 }: getMembersInput): Promise<getMembersResponse[]> {
-  const initMembers = await fetch("http://localhost:5000/members");
+  const initMembers = await fetch("/members");
   const initMembersJSON = (await initMembers.json()) as getMembersResponse[];
 
   if (name === "") {
@@ -28,7 +28,7 @@ async function getMembers({
 async function addMember({ memberInput }: addMemberInput) {
   const body = memberInput;
   console.log("dao " + memberInput);
-  fetch("http://localhost:5000/members", {
+  fetch("/members", {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(body),
