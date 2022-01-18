@@ -171,6 +171,7 @@ export default function MemberPage({
               name="member_name"
               className="memberInput"
               data-testid="name"
+              value={update.member_name}
             ></input>
           </div>
           <div className="memberUpdateElement">
@@ -180,6 +181,7 @@ export default function MemberPage({
               name="member_phone"
               className="memberInput"
               data-testid="phone"
+              value={update.member_phone}
             ></input>
           </div>
           <div className="memberUpdateElement">
@@ -189,6 +191,7 @@ export default function MemberPage({
               name="member_belt"
               data-testid="beltInput"
               className="memberInput"
+              value={update.member_belt}
             >
               <option value="white">white</option>
               <option value="blue">blue</option>
@@ -205,7 +208,7 @@ export default function MemberPage({
               type="date"
               data-testid="joined"
               onChange={handleChange}
-              defaultValue={joined}
+              value={update.member_joined_at}
             />
           </div>
 
@@ -215,7 +218,7 @@ export default function MemberPage({
               data-testid="paid"
               name="member_paid"
               onChange={handleChange}
-              defaultValue={paid}
+              defaultValue={update.member_paid}
             >
               <option value="no" selected>
                 Select
@@ -231,7 +234,7 @@ export default function MemberPage({
               data-testid="frozen"
               name="member_frozen"
               onChange={handleChange}
-              defaultValue={frozen}
+              defaultValue={update.member_frozen}
             >
               <option value="no" selected>
                 Select

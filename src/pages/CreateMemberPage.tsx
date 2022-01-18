@@ -49,7 +49,7 @@ export default function CreateMemberPage({
     } else {
       console.log("memberNotAdded)");
     }
-  }, [memberAdded]);
+  }, [memberAdded, getMembersFunction, setMembers, memberInput]);
 
   if (handleSubmit === undefined) {
     handleSubmit = (e: any) => {
