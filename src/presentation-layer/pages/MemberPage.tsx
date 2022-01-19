@@ -55,8 +55,10 @@ export default function MemberPage({
       const body = update;
       try {
         updateMember({ id: id, update: update });
-        const response2 = await getMembersFunction({ name: "" });
-        setMembers(response2);
+        const updatedMembers = await getMembersFunction({ name: "" });
+        setMembers(updatedMembers);
+        const newMembers = await getMembersFunction({ name: "" });
+        setMembers(newMembers);
       } catch (error) {
         console.log(error);
       }

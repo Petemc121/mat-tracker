@@ -1,4 +1,4 @@
-import { filteredMembers } from "./DataLogic";
+import { filteredMembers } from "./Logic";
 import "@testing-library/jest-dom";
 
 describe("filtered Members", () => {
