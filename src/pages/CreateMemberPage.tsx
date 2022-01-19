@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 import { getMembers, addMember } from "../MatTrackerDAO/MatTrackerData";
 import {
   getMembersResponse,
@@ -89,72 +90,76 @@ export default function CreateMemberPage({
   }
 
   return (
-    <div id="memberInputFormContainer">
-      <form
-        id="memberInputForm"
-        style={{ display: memberAdded ? "none" : "flex" }}
-      >
-        <div className="memberInputElement">
-          Name:
-          <input
-            onChange={handleChange}
-            name="member_name"
-            className="memberInput"
-            data-testid="name"
-          ></input>
-        </div>
-        <div className="memberInputElement">
-          Phone number:
-          <input
-            onChange={handleChange}
-            name="member_phone"
-            className="memberInput"
-            data-testid="phone"
-          ></input>
-        </div>
-        <div className="memberInputElement">
-          Belt:
-          <select
-            onChange={handleChange}
-            name="member_belt"
-            data-testid="beltInput"
-            className="memberInput"
-          >
-            <option value="white">white</option>
-            <option value="blue">blue</option>
-            <option value="purple">purple</option>
-            <option value="brown">brown</option>
-            <option value="black">black</option>
-          </select>
-        </div>
-        <div className="memberInputElement">
-          Joined:
-          <input
-            name="member_joined_at"
-            className="memberInput"
-            type="date"
-            data-testid="joined"
-            onChange={handleChange}
-            defaultValue={dateInput}
-          />
-        </div>
-        <input data-testid="submit" onClick={handleSubmit} type="submit" />
-      </form>
+    <div id="createMemberPage">
+      <Header />
 
-      <Link id="createMemberCancel" className="homeLink" to="/">
-        <button data-testid="cancel" className="cancel">
-          Cancel
-        </button>
-      </Link>
-      <div
-        id="memberAddedNotification"
-        style={{ display: memberAdded ? "flex" : "none" }}
-      >
-        <h3 id="memberAddedMessage">Member added! Navigate back to home.</h3>
+      <div id="memberInputFormContainer">
+        <form
+          id="memberInputForm"
+          style={{ display: memberAdded ? "none" : "flex" }}
+        >
+          <div className="memberInputElement">
+            Name:
+            <input
+              onChange={handleChange}
+              name="member_name"
+              className="memberInput"
+              data-testid="name"
+            ></input>
+          </div>
+          <div className="memberInputElement">
+            Phone number:
+            <input
+              onChange={handleChange}
+              name="member_phone"
+              className="memberInput"
+              data-testid="phone"
+            ></input>
+          </div>
+          <div className="memberInputElement">
+            Belt:
+            <select
+              onChange={handleChange}
+              name="member_belt"
+              data-testid="beltInput"
+              className="memberInput"
+            >
+              <option value="white">white</option>
+              <option value="blue">blue</option>
+              <option value="purple">purple</option>
+              <option value="brown">brown</option>
+              <option value="black">black</option>
+            </select>
+          </div>
+          <div className="memberInputElement">
+            Joined:
+            <input
+              name="member_joined_at"
+              className="memberInput"
+              type="date"
+              data-testid="joined"
+              onChange={handleChange}
+              defaultValue={dateInput}
+            />
+          </div>
+          <input data-testid="submit" onClick={handleSubmit} type="submit" />
+        </form>
 
-        <Link className="homeLink" to="/">
-          <button className="buttons cancel home">Home</button>
+        <Link id="createMemberCancel" className="homeLink" to="/">
+          <button data-testid="cancel" className="cancel">
+            Cancel
+          </button>
         </Link>
+        <div
+          id="memberAddedNotification"
+          style={{ display: memberAdded ? "flex" : "none" }}
+        >
+          <h3 id="memberAddedMessage">Member added! Navigate back to home.</h3>
+
+          <Link className="homeLink" to="/">
+            <button className="buttons cancel home">Home</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

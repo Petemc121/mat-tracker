@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 import {
   getMembersInput,
   getMembersResponse,
@@ -103,6 +104,7 @@ export default function MemberPage({
 
   return (
     <div id="memberPage">
+      <Header />
       <div
         id="memberInfoContainer"
         style={{

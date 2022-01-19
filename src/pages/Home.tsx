@@ -3,6 +3,7 @@ import { getMembersResponse } from "../MatTrackerDAO/MatTrackerDataTypes";
 import "../styles/app.css";
 import Members from "../components/Members";
 import MemberSearch from "../components/MemberSearch";
+import Header from "../components/Header";
 
 interface homeInput {
   members: getMembersResponse[] | undefined;
@@ -12,7 +13,7 @@ interface homeInput {
 export default function Home({ members, setMemberSearch }: homeInput) {
   return (
     <>
-      <div data-testid="header">Mat Tracker</div>
+      <Header />
       <div id="elementContainer">
         <Link id="addMemberLink" to="CreateMemberPage">
           <button id="addMember">Add member</button>
