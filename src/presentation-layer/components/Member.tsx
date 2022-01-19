@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getMembersResponse } from "../DAO/DataAccessObjectTypes";
+import { getMembersResponse } from "../../DAO/DataAccessObjectTypes";
 
 interface memberInput {
   member: getMembersResponse;

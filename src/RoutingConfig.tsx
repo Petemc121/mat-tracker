@@ -6,9 +6,9 @@ import {
   getMembersResponse,
   getMembersInput,
 } from "./DAO/DataAccessObjectTypes";
-import CreateMemberPage from "./pages/CreateMemberPage";
-import MemberPage from "./pages/MemberPage";
-import Home from "./pages/Home";
+import CreateMemberPage from "./presentation-layer/pages/CreateMemberPage";
+import MemberPage from "./presentation-layer/pages/MemberPage";
+import Home from "./presentation-layer/pages/Home";
 
 interface routingConfigInput {
   getMembersFunction?: ({

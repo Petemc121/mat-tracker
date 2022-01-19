@@ -5,12 +5,12 @@ import Header from "../components/Header";
 import {
   getMembersInput,
   getMembersResponse,
-} from "../DAO/DataAccessObjectTypes";
+} from "../../DAO/DataAccessObjectTypes";
 import {
   getMembers,
   deleteMember,
   updateMember,
-} from "../DAO/DataAccessObject";
+} from "../../DAO/DataAccessObject";
 
 interface MemberPageInput {
   getMembersFunction?: ({

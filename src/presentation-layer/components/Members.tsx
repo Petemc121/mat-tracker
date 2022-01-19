@@ -1,4 +1,4 @@
-import { getMembersResponse } from "../DAO/DataAccessObjectTypes";
+import { getMembersResponse } from "../../DAO/DataAccessObjectTypes";
 import Member from "./Member";
 import { Link } from "react-router-dom";
 

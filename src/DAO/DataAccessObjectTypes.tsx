@@ -1,4 +1,4 @@
-import { filteredMembersInput } from "../logic/LogicTypes";
+import { filteredMembersInput } from "../domain-layer/data-logic/LogicTypes";
 
 type getMembersResponse = {
   member_id: number;

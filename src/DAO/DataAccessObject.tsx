@@ -6,7 +6,7 @@ import {
   updateMemberInput,
 } from "./DataAccessObjectTypes";
 
-import { filteredMembers } from "../logic/DataLogic";
+import { filteredMembers } from "../domain-layer/data-logic/DataLogic";
 
 //Data Access Object
 

@@ -1,4 +1,4 @@
-import { getMembersResponse } from "../DAO/DataAccessObjectTypes";
+import { getMembersResponse } from "../../DAO/DataAccessObjectTypes";
 
 type filteredMembersInput = {
   initMembers: getMembersResponse[];

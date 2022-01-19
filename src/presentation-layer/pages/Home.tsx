@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { getMembersResponse } from "../DAO/DataAccessObjectTypes";
-import "../styles/app.css";
+import { getMembersResponse } from "../../DAO/DataAccessObjectTypes";
+import "../../styles/app.css";
 import Members from "../components/Members";
 import MemberSearch from "../components/MemberSearch";
 import Header from "../components/Header";
