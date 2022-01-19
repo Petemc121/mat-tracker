@@ -1,4 +1,4 @@
-import { getMembersResponse } from "../MatTrackerDAO/MatTrackerDataTypes";
+import { getMembersResponse } from "../DAO/DataAccessObjectTypes";
 
 type filteredMembersInput = {
   initMembers: getMembersResponse[];

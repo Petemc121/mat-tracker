@@ -1,0 +1,90 @@
+@import "./variables";
+
+[data-testid="paid"] {
+  margin-left: 5px;
+}
+
+[data-testid="frozen"] {
+  margin-left: 5px;
+}
+
+#memberInfoContainer {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px auto;
+  font-size: 25px;
+  background-color: rgb(242, 242, 246);
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.memberInfoElement {
+  display: flex;
+  justify-content: space-between;
+  width: 2600px;
+}
+@media (min-width: 400px) {
+  .memberInfoElement {
+    width: 300px;
+  }
+}
+
+[data-testid="edit"] {
+  background-color: $secondary-color;
+  width: 80%;
+  border: none;
+}
+[data-testid="edit"]:hover {
+  background-color: $dark-secondary-color;
+}
+
+#updateSubmit {
+  width: 80%;
+  margin: 0px auto;
+}
+
+#updateCancel {
+  width: 80%;
+  margin: 0px auto;
+}
+
+#memberUpdateForm {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgb(242, 242, 246);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.memberUpdateElement {
+  display: flex;
+  justify-content: space-between;
+}
+
+#memberDeleted {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px 0px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $tertiary-color;
+  color: white;
+}
+
+#memberDeletedInner {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $tertiary-color;
+}

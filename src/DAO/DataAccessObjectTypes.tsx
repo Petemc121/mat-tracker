@@ -1,4 +1,4 @@
-import { filteredMembersInput } from "../MatTrackerLogic/LogicTypes";
+import { filteredMembersInput } from "../logic/LogicTypes";
 
 type getMembersResponse = {
   member_id: number;

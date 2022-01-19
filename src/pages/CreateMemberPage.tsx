@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-import { getMembers, addMember } from "../MatTrackerDAO/MatTrackerData";
+import { getMembers, addMember } from "../DAO/DataAccessObject";
 import {
   getMembersResponse,
   getMembersInput,
-} from "../MatTrackerDAO/MatTrackerDataTypes";
+} from "../DAO/DataAccessObjectTypes";
 
 type CreateMemberPageInput = {
   handleChange?: (event: any) => void;

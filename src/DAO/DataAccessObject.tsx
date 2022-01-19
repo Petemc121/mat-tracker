@@ -4,9 +4,9 @@ import {
   addMemberInput,
   deleteMemberInput,
   updateMemberInput,
-} from "./MatTrackerDataTypes";
+} from "./DataAccessObjectTypes";
 
-import { filteredMembers } from "../MatTrackerLogic/DataLogic";
+import { filteredMembers } from "../logic/DataLogic";
 
 //Data Access Object
 

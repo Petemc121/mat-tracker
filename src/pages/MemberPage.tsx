@@ -5,12 +5,12 @@ import Header from "../components/Header";
 import {
   getMembersInput,
   getMembersResponse,
-} from "../MatTrackerDAO/MatTrackerDataTypes";
+} from "../DAO/DataAccessObjectTypes";
 import {
   getMembers,
   deleteMember,
   updateMember,
-} from "../MatTrackerDAO/MatTrackerData";
+} from "../DAO/DataAccessObject";
 
 interface MemberPageInput {
   getMembersFunction?: ({

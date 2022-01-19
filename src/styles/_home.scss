@@ -1,0 +1,85 @@
+@import "./variables";
+
+#elementContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#memberSearch {
+  margin: 20px 0px 30px 0px;
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+}
+
+#addMember {
+  margin: 20px;
+  height: 40px;
+  text-decoration: none;
+  padding: 10px;
+  background-color: $secondary-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.5s;
+}
+
+#addMember:hover {
+  background-color: $dark-secondary-color;
+  color: white;
+}
+
+[data-testid="belt"] {
+  width: 50px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+#membersContain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  background-color: $tertiary-color;
+}
+
+.memberButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  margin: 20px 20px;
+  height: 100px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+  border: none;
+  box-shadow: 1px 2px 2px rgb(85, 48, 48);
+}
+
+.memberButton:hover {
+  background-color: $primary-color;
+  color: white;
+}
+
+#addMemberLink {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.memberLink {
+  text-decoration: none;
+}

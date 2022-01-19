@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { getMembers } from "./MatTrackerDAO/MatTrackerData";
+import { getMembers } from "./DAO/DataAccessObject";
 import {
   getMembersResponse,
   getMembersInput,
-} from "./MatTrackerDAO/MatTrackerDataTypes";
+} from "./DAO/DataAccessObjectTypes";
 import CreateMemberPage from "./pages/CreateMemberPage";
 import MemberPage from "./pages/MemberPage";
 import Home from "./pages/Home";

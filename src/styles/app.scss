@@ -1,4 +1,7 @@
 @import "./variables";
+@import "./home.scss";
+@import "./memberPage.scss";
+@import "./createMemberPage.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 * {
@@ -21,13 +24,6 @@ body {
   height: 100vh;
 }
 
-#elementContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 [data-testid="header"] {
   width: 100%;
   text-align: center;
@@ -39,48 +35,12 @@ body {
   font-weight: bold;
 }
 
-#memberSearch {
-  margin: 20px 0px 30px 0px;
-  border-radius: 5px;
-  height: 30px;
-  width: 200px;
-  text-align: center;
-}
-
 .center {
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-#addMember {
-  margin: 20px;
-  height: 40px;
-  text-decoration: none;
-  padding: 10px;
-  background-color: $secondary-color;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 20px;
-  transition: all 0.5s;
-}
-
-#addMember:hover {
-  background-color: $dark-secondary-color;
-  color: white;
-}
-
-[data-testid="belt"] {
-  width: 50px;
-  height: 10px;
-  border: 1px solid black;
-  border-radius: 2px;
-  margin-top: 5px;
 }
 
 [data-testid="submit"] {
@@ -95,103 +55,8 @@ body {
   width: 80%;
 }
 
-[data-testid="paid"] {
-  margin-left: 5px;
-}
-
-[data-testid="frozen"] {
-  margin-left: 5px;
-}
-
 [data-testid="submit"]:hover {
   background-color: $dark-secondary-color;
-}
-
-.memberButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 3px;
-  margin: 20px 20px;
-  height: 100px;
-  padding: 5px;
-  cursor: pointer;
-  transition: all 0.5s;
-  border: none;
-  box-shadow: 1px 2px 2px rgb(85, 48, 48);
-}
-
-.memberButton:hover {
-  background-color: $primary-color;
-  color: white;
-}
-
-#membersContain {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  flex-wrap: wrap;
-  border-radius: 5px;
-  background-color: $tertiary-color;
-}
-
-#memberInputFormContainer {
-  font-size: 20px;
-  font-weight: bold;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: rgb(242, 242, 246);
-}
-
-#memberInputForm {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.memberInputElement {
-  margin: 20px auto;
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-}
-
-.memberInput {
-  margin-left: 10px;
-}
-
-#addMemberLink {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.memberLink {
-  text-decoration: none;
-}
-
-#memberAddedNotification {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: $tertiary-color;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
 }
 
 .homeLink {
@@ -203,55 +68,6 @@ body {
 
 .homeLink:hover {
   color: rgb(19, 80, 179);
-}
-
-#memberAddedMessage {
-  margin-top: -100px;
-  margin-bottom: 20px;
-}
-
-#memberInfoContainer {
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 50px auto;
-  font-size: 25px;
-  background-color: rgb(242, 242, 246);
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-}
-
-.memberInfoElement {
-  display: flex;
-  justify-content: space-between;
-  width: 2600px;
-}
-@media (min-width: 400px) {
-  .memberInfoElement {
-    width: 300px;
-  }
-}
-
-[data-testid="edit"] {
-  background-color: $secondary-color;
-  width: 80%;
-  border: none;
-}
-[data-testid="edit"]:hover {
-  background-color: $dark-secondary-color;
-}
-
-#updateSubmit {
-  width: 80%;
-  margin: 0px auto;
-}
-
-#updateCancel {
-  width: 80%;
-  margin: 0px auto;
 }
 
 [data-testid="cancel"] {
@@ -266,35 +82,13 @@ body {
   width: 100%;
 }
 
-#createMemberCancel {
-  width: 80%;
-}
-
 [data-testid="cancel"]:hover {
   background-color: rgb(99, 17, 21);
-}
-
-#memberUpdateForm {
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: rgb(242, 242, 246);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.memberUpdateElement {
-  display: flex;
-  justify-content: space-between;
 }
 
 [data-testid="delete"] {
   background-color: rgb(134, 24, 29);
   border: none;
-}
-
-#delete {
   width: 80%;
   margin-top: -40px;
 }
@@ -304,7 +98,6 @@ body {
 }
 
 .buttons {
-  margin: 10px 10px;
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -321,26 +114,4 @@ body {
 
 .home:hover {
   background-color: $dark-primary-color;
-}
-
-#memberDeleted {
-  width: 100vw;
-  height: 100vh;
-  margin: 0px 0px;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: $tertiary-color;
-  color: white;
-}
-
-#memberDeletedInner {
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: $tertiary-color;
 }
