@@ -5,17 +5,17 @@ import "@testing-library/jest-dom";
 
 describe("Member page", () => {
   it("should have a form with all required fields", () => {
-    const { getByText } = render(
+    const { getAllByText } = render(
       <Router>
         <MemberPage />
       </Router>
     );
-    expect(getByText("Name:")).toBeInTheDocument();
-    expect(getByText("Belt:")).toBeInTheDocument();
-    expect(getByText("Phone number:")).toBeInTheDocument();
-    expect(getByText("Joined at:")).toBeInTheDocument();
-    expect(getByText("Paid:")).toBeInTheDocument();
-    expect(getByText("Frozen:")).toBeInTheDocument();
+    expect(getAllByText("Name:").length).toEqual(2);
+    expect(getAllByText("Belt:").length).toEqual(2);
+    expect(getAllByText("Phone number:").length).toEqual(2);
+    expect(getAllByText("Joined at:").length).toEqual(2);
+    expect(getAllByText("Paid:").length).toEqual(2);
+    expect(getAllByText("Frozen:").length).toEqual(2);
   });
 
   it("should render deleted member notification on member delete", () => {

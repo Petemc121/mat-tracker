@@ -31,10 +31,10 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "nodemon server.js",
-    "test": "react-scripts test",
+    "test": "react-scripts test --testURL=http://localhost:5000",
     "eject": "react-scripts eject",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },

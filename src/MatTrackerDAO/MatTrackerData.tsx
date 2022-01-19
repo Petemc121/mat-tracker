@@ -6,10 +6,17 @@ import {
   updateMemberInput,
 } from "./MatTrackerDataTypes";
 
+import { filteredMembers } from "../MatTrackerLogic/DataLogic";
+
 //Data Access Object
+
+//proxy is only used in developement so it will be ignored in production builds
+//so if there is no localhost then by default it will use heroku
+//remember this heroku app is just our server serving the build static content and also holding the restful api
 
 async function getMembers({
   name,
+  filterFunction = filteredMembers,
 }: getMembersInput): Promise<getMembersResponse[]> {
   const initMembers = await fetch("/members");
   const initMembersJSON = (await initMembers.json()) as getMembersResponse[];
@@ -17,12 +24,7 @@ async function getMembers({
   if (name === "") {
     return initMembersJSON;
   }
-  const members = initMembersJSON.filter(
-    (member) =>
-      member.member_name !== null &&
-      member.member_name.toUpperCase().includes(name.toUpperCase())
-  );
-  return members;
+  return filterFunction({ initMembers: initMembersJSON, name: name });
 }
 
 async function addMember({ memberInput }: addMemberInput) {

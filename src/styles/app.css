@@ -8,12 +8,14 @@
 
 body {
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
+  max-width: 100%;
   background-color: white;
 }
 
 #root {
   width: 100vw;
+  max-width: 100%;
   height: 100vh;
 }
 
@@ -108,11 +110,6 @@ body {
   font-weight: bold;
   margin: auto auto;
   width: 80%;
-}
-
-#updateSubmit {
-  margin: 0px 0px;
-  width: 100%;
 }
 
 [data-testid="paid"] {
@@ -320,17 +317,29 @@ body {
 [data-testid="edit"] {
   background-color: #0c7489;
   width: 80%;
+  border: none;
 }
 
 [data-testid="edit"]:hover {
   background-color: #095261;
 }
 
+#updateSubmit {
+  width: 80%;
+  margin: 0px auto;
+}
+
+#updateCancel {
+  width: 80%;
+  margin: 0px auto;
+}
+
 [data-testid="cancel"] {
   background-color: #86181d;
   color: white;
   font-weight: bold;
-  height: 30px;
+  height: 35px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: -20px;
@@ -373,6 +382,7 @@ body {
 
 [data-testid="delete"] {
   background-color: #86181d;
+  border: none;
 }
 
 #delete {
@@ -405,8 +415,9 @@ body {
 }
 
 #memberDeleted {
-  width: 100%;
-  height: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px 0px;
   text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

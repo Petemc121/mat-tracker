@@ -15,7 +15,7 @@ export default function Home({ members, setMemberSearch }: homeInput) {
       <div data-testid="header">Mat Tracker</div>
       <div id="elementContainer">
         <Link id="addMemberLink" to="CreateMemberPage">
-          <button id="addMember">Add Member</button>
+          <button id="addMember">Add member</button>
         </Link>
         <MemberSearch setMemberSearch={setMemberSearch} />
         <Members members={members} />

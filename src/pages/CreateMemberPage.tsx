@@ -44,10 +44,8 @@ export default function CreateMemberPage({
     };
 
     if (memberAdded === true) {
-      console.log("memberAdded)");
       updateMembers();
     } else {
-      console.log("memberNotAdded)");
     }
   }, [memberAdded, getMembersFunction, setMembers, memberInput]);
 
@@ -77,17 +75,8 @@ export default function CreateMemberPage({
           return;
         }
       }
-      try {
-        //proxy is only used in developement so it will be ignored in production builds
-        //so if there is no localhost then by default it will use heroku
-        //remember this heroku app is just our server serving the build static content and also holding the restful api
-        setMemberAdded(true);
-        console.log("adding");
-        console.log(memberAdded);
-      } catch (error) {
-        console.log(error);
-        console.log("memberAdded)");
-      }
+
+      setMemberAdded(true);
     };
   }
 

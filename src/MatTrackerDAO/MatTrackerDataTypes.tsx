@@ -1,3 +1,5 @@
+import { filteredMembersInput } from "../MatTrackerLogic/LogicTypes";
+
 type getMembersResponse = {
   member_id: number;
   member_name: string | null;
@@ -11,6 +13,10 @@ type getMembersResponse = {
 
 type getMembersInput = {
   name: string;
+  filterFunction?: ({
+    initMembers,
+    name,
+  }: filteredMembersInput) => getMembersResponse[];
 };
 
 type addMemberInput = {

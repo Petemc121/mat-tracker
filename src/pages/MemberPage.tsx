@@ -201,7 +201,7 @@ export default function MemberPage({
             </select>
           </div>
           <div className="memberUpdateElement">
-            Joined:
+            Joined at:
             <input
               name="member_joined_at"
               className="memberInput"
@@ -250,7 +250,12 @@ export default function MemberPage({
             onClick={handleUpdate}
             type="submit"
           />
-          <button data-testid="cancel" type="button" onClick={onCancel}>
+          <button
+            data-testid="cancel"
+            id="updateCancel"
+            type="button"
+            onClick={onCancel}
+          >
             Cancel
           </button>
         </form>
