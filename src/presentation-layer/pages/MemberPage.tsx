@@ -43,9 +43,7 @@ export default function MemberPage({
         const updatedMembers = await getMembersFunction({ name: "" });
         setMembers(updatedMembers);
         setDeleted(true);
-        const newMembers = await getMembersFunction({ name: "" });
-        console.log(newMembers);
-        setMembers(newMembers);
+        console.log(`updated Members: ${updatedMembers.length}`);
       } catch (error) {
         console.log(error);
       }
@@ -54,11 +52,9 @@ export default function MemberPage({
     const editAndUpdateMembers = async () => {
       const body = update;
       try {
-        updateMember({ id: id, update: update });
+        await updateMember({ id: id, update: update });
         const updatedMembers = await getMembersFunction({ name: "" });
         setMembers(updatedMembers);
-        const newMembers = await getMembersFunction({ name: "" });
-        setMembers(newMembers);
       } catch (error) {
         console.log(error);
       }

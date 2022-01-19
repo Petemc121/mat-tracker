@@ -29,8 +29,7 @@ async function getMembers({
 
 async function addMember({ memberInput }: addMemberInput) {
   const body = memberInput;
-  console.log("dao " + memberInput);
-  fetch("/members", {
+  await fetch("/members", {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(body),
@@ -38,7 +37,7 @@ async function addMember({ memberInput }: addMemberInput) {
 }
 
 async function deleteMember({ id }: deleteMemberInput) {
-  fetch("/members/" + id, {
+  await fetch("/members/" + id, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
   });

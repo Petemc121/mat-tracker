@@ -44,9 +44,6 @@ export default function CreateMemberPage({
       console.log(memberInput);
       const updatedMembers = await getMembersFunction({ name: "" });
       setMembers(updatedMembers);
-      const newMembers = await getMembersFunction({ name: "" });
-      console.log(newMembers);
-      setMembers(newMembers);
     };
 
     if (memberAdded === true) {
