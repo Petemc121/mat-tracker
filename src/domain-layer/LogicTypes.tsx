@@ -14,7 +14,7 @@ type handleCreateMemberSubmitInput = {
     member_paid: string;
     member_frozen: string;
   };
-  e: any;
+  e?: any;
   setMemberAdded: any;
 };
 

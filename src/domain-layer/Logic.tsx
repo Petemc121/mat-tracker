@@ -19,8 +19,6 @@ const handleCreateMemberSubmit = ({
 }: handleCreateMemberSubmitInput) => {
   e.preventDefault();
 
-  console.log(memberInput);
-
   if (memberInput.member_name === "") {
     alert("please enter your name");
     return;
@@ -44,6 +42,7 @@ const handleCreateMemberSubmit = ({
     }
   }
   setMemberAdded(true);
+  return true;
 };
 
 const handleChangeEvent = ({ event, setMemberInput }: handleChangeInput) => {

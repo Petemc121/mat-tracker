@@ -20,7 +20,7 @@ type CreateMemberPageInput = {
 };
 
 export default function CreateMemberPage({
-  handleChange,
+  handleChange = handleChangeEvent,
   handleSubmit = handleCreateMemberSubmit,
   getMembersFunction = getMembers,
   setMembers,
@@ -40,10 +40,14 @@ export default function CreateMemberPage({
 
   useEffect(() => {
     const updateMembers = async () => {
-      await addMember({ memberInput: memberInput });
-      console.log(memberInput);
-      const updatedMembers = await getMembersFunction({ name: "" });
-      setMembers(updatedMembers);
+      try {
+        await addMember({ memberInput: memberInput });
+        console.log(memberInput);
+        const updatedMembers = await getMembersFunction({ name: "" });
+        setMembers(updatedMembers);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     if (memberAdded === true) {
@@ -51,14 +55,6 @@ export default function CreateMemberPage({
     } else {
     }
   }, [memberAdded, getMembersFunction, setMembers, memberInput]);
-
-  if (handleChange === undefined) {
-    handleChange = (event: any) => {
-      const name = event.target.name;
-      const value = event.target.value;
-      setMemberInput((values: {}) => ({ ...values, [name]: value }));
-    };
-  }
 
   return (
     <div id="memberInputFormContainer">
@@ -69,7 +65,9 @@ export default function CreateMemberPage({
         <div className="memberInputElement">
           Name:
           <input
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange({ event: e, setMemberInput: setMemberInput });
+            }}
             name="member_name"
             className="memberInput"
             data-testid="name"
@@ -78,7 +76,9 @@ export default function CreateMemberPage({
         <div className="memberInputElement">
           Phone number:
           <input
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange({ event: e, setMemberInput: setMemberInput });
+            }}
             name="member_phone"
             className="memberInput"
             data-testid="phone"
@@ -87,7 +87,9 @@ export default function CreateMemberPage({
         <div className="memberInputElement">
           Belt:
           <select
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange({ event: e, setMemberInput: setMemberInput });
+            }}
             name="member_belt"
             data-testid="beltInput"
             className="memberInput"
@@ -106,7 +108,9 @@ export default function CreateMemberPage({
             className="memberInput"
             type="date"
             data-testid="joined"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange({ event: e, setMemberInput: setMemberInput });
+            }}
             defaultValue={dateInput}
           />
         </div>

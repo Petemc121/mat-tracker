@@ -1,4 +1,4 @@
-import { filteredMembers } from "./Logic";
+import { filteredMembers, handleCreateMemberSubmit } from "./Logic";
 import "@testing-library/jest-dom";
 
 describe("filtered Members", () => {
@@ -67,4 +67,28 @@ describe("filtered Members", () => {
       );
     }
   );
+});
+
+describe("handleCreateMemberSubmit", () => {
+  it("should verify member input values", () => {
+    const memberInput = {
+      member_name: "bob",
+      member_phone: "1234567890",
+      member_belt: "white",
+      member_joined_at: "2021-11-19",
+      member_paid: "no",
+      member_frozen: "no",
+    };
+    const setMemberAdded = jest.fn();
+    const preventDefault = jest.fn();
+    const e = { preventDefault: preventDefault };
+
+    expect(
+      handleCreateMemberSubmit({
+        memberInput: memberInput,
+        setMemberAdded: setMemberAdded,
+        e: e,
+      })
+    ).toBe(true);
+  });
 });
