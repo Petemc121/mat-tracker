@@ -52,26 +52,4 @@ describe("DAO", () => {
       initialMembers.length - 1
     );
   });
-
-  it("updateMember() should successfully update a member in the database", async () => {
-    const initialMembers = await getMembers({ name: "" });
-
-    const update = {
-      member_name: "bobby",
-      member_phone: initialMembers[0].member_phone,
-      member_belt: initialMembers[0].member_belt,
-      member_joined_at: initialMembers[0].member_joined_at,
-      member_paid: initialMembers[0].member_paid,
-      member_frozen: initialMembers[0].member_frozen,
-    };
-
-    await updateMember({
-      id: initialMembers[0].member_id.toString(),
-      update: update,
-    });
-
-    const newMembers = await getMembers({ name: "" });
-
-    expect(newMembers[0].member_name).toEqual("bobby");
-  });
 });
